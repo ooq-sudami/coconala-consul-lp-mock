@@ -1559,10 +1559,10 @@
 <header class="site-header">
   <div class="logo">ココナラ<span>コンサル</span></div>
   <nav class="header-nav">
-    <a href="#program">プログラム</a>
-    <a href="#cases">活用事例</a>
-    <a href="#lecturer">講師・メンバー</a>
     <a href="#subsidy">助成金</a>
+    <a href="#cases">活用事例</a>
+    <a href="#program">プログラム</a>
+    <a href="#lecturer">講師・メンバー</a>
     <a href="#pricing">料金</a>
     <a href="#faq">FAQ</a>
     <a href="#contact" class="header-cta">まずは無料で相談する</a>
@@ -1777,6 +1777,209 @@
   </div>
 </section>
 
+<!-- ===================== 事例セクション（タブ式）===================== -->
+<section class="cases" id="cases">
+  <div class="section-inner">
+    <p class="section-eyebrow">CASE STUDIES</p>
+    <h2 class="section-title">業界別・業務別に最適化した<span class="accent">AXカリキュラム設計</span></h2>
+    <p class="section-desc">全業種・全部門を一律のテンプレートで進めるのではなく、貴社の業界・組織課題・業務シナリオに合わせて専用カリキュラムをカスタマイズして設計します。<br>業界タブを切り替えて、貴社の業界に近い事例をご覧ください。</p>
+
+    <div class="case-tabs" id="caseTabs">
+      <button class="case-tab active" data-target="all">すべて<span class="count">15</span></button>
+      <button class="case-tab" data-target="manufacturing">製造業<span class="count">3</span></button>
+      <button class="case-tab" data-target="it">IT・SaaS<span class="count">3</span></button>
+      <button class="case-tab" data-target="retail">小売・EC<span class="count">3</span></button>
+      <button class="case-tab" data-target="finance">金融<span class="count">3</span></button>
+      <button class="case-tab" data-target="housing">住宅・不動産<span class="count">3</span></button>
+    </div>
+
+    <!-- ALL -->
+    <div class="case-panel active" data-panel="all">
+      <!-- 全15件 -->
+      <!-- 1 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 01 ／ 製造業</span><p class="case-attr">大手電機メーカー／生産技術部</p></div>
+        <p class="case-title">設備保全レポートの自動化PoCで、研修内容を業務に定着</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">「AIを使え」という方針はあるものの、現場でどこから着手するか判断できなかった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">4段階研修と、3ヶ月の伴走による生成AI×設備保全レポート自動化PoC。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">受講者10名がそれぞれ自身の業務にAIを組み込み、月次レポート作成業務に手応えを実感。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ 管理職様</strong>「現場が"AIを動かせる"状態になるまで伴走してくれました」</p>
+      </div>
+      <!-- 2 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 02 ／ 製造業</span><p class="case-attr">自動車部品メーカー／購買部</p></div>
+        <p class="case-title">属人化していた見積査定業務の立ち上がりを支援</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">見積査定業務が属人化し、新任メンバーの立ち上がりに時間がかかっていた。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">購買15名向け業界特化型カリキュラム＋データ取込テンプレ整備伴走。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">見積比較の初動スピードが向上、新任メンバーの立ち上がり期間が短縮。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ マネージャー様</strong>「研修翌週から業務が変わる感触があった」</p>
+      </div>
+      <!-- 3 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 03 ／ 製造業</span><p class="case-attr">食品メーカー／経営企画部</p></div>
+        <p class="case-title">部門間のリテラシー格差を、層別設計で底上げ</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">DXを推進したいが、社内のAIリテラシーに大きな格差があった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">経営企画と各事業部キーマン20名を対象に、4段階研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">各部門でAI活用提案が自発的に上がる文化への変化がみられた。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ DX推進担当役員様</strong>「全社のリテラシーが底上げされました」</p>
+      </div>
+      <!-- 4 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 04 ／ IT・SaaS</span><p class="case-attr">SaaSスタートアップ／プロダクト開発部</p></div>
+        <p class="case-title">AIコーディングツールの実装研修で、開発スピードを加速</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">Cursor／Claude Code等のAIコーディングツールを使い切れていなかった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">エンジニア20名向けの実装研修と、週次伴走を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">開発スピードに体感の手応え。新メンバーのオンボード期間も短縮。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ CTO様</strong>「実装に踏み込んだ実践的な内容で、業務への持ち帰りがスムーズでした」</p>
+      </div>
+      <!-- 5 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 05 ／ IT・SaaS</span><p class="case-attr">上場IT企業／マーケティング部</p></div>
+        <p class="case-title">AI広告クリエイティブ制作の運用定着まで設計</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">生成AIをマーケに組み込みたいが、運用が継続しなかった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">マーケティング12名向けにAI広告クリエイティブの実装研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">AI広告制作パイプラインが社内に定着。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ マーケティング責任者様</strong>「やって終わりではなく、続く設計が秀逸」</p>
+      </div>
+      <!-- 6 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 06 ／ IT・SaaS</span><p class="case-attr">IT受託開発／営業部</p></div>
+        <p class="case-title">提案書作成業務へのAI活用を、習慣化レベルまで支援</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">提案書作成に時間がかかり、商談数が伸び悩んでいた。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">営業10名向けの3日間集中研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">提案書ドラフトをAIで作成する習慣が定着。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ 営業マネージャー様</strong>「現場で本当に使う技術を学べました」</p>
+      </div>
+      <!-- 7 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 07 ／ 小売・EC</span><p class="case-attr">大手小売チェーン／EC運営部</p></div>
+        <p class="case-title">商品ページ制作のリードタイム短縮を実現</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">商品ページ制作が滞留し、新商品の掲載が遅れがちだった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">EC担当8名向けに、生成AIの実装研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">商品ページ作成のリードタイムが短縮、掲載点数が増加。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ EC責任者様</strong>「効果が見える研修だった」</p>
+      </div>
+      <!-- 8 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 08 ／ 小売・EC</span><p class="case-attr">ホームセンターチェーン／MD部</p></div>
+        <p class="case-title">販売データ分析の属人化を解消</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">販売データ分析が属人化していた。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">MD12名向けに、データ分析×AIをテーマとした研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">店長会で発信される販促企画にAI仮説が増加。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ MD責任者様</strong>「現場の言葉でAIを語れるようになりました」</p>
+      </div>
+      <!-- 9 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 09 ／ 小売・EC</span><p class="case-attr">アパレルブランド／店舗運営部</p></div>
+        <p class="case-title">店舗ごとのリテラシー格差を一律で底上げ</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">店舗ごとにPC・AIリテラシーの格差があった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">エリアマネージャーと店長合計30名向けの基礎研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">店舗発信のSNSコンテンツがAIで内製化。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ エリアマネージャー様</strong>「全店一律のリテラシー底上げに効いた」</p>
+      </div>
+      <!-- 10 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 10 ／ 金融</span><p class="case-attr">大手金融機関／リテール営業部</p></div>
+        <p class="case-title">セキュリティ要件まで踏み込んだAI活用研修</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">営業会議資料作成が業務を圧迫していた。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">営業40名向けのAI活用研修と、セキュリティガイドラインの整備を支援。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">会議資料の準備時間が短縮、商談数が増加。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ 営業部長様</strong>「金融特有のセキュリティ要件まで踏み込んだ研修だった」</p>
+      </div>
+      <!-- 11 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 11 ／ 金融</span><p class="case-attr">保険会社／商品企画部</p></div>
+        <p class="case-title">商品開発リサーチの加速を支援</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">商品開発のリサーチに時間がかかっていた。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">企画15名向けに、リサーチ業務へのAI実装研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">商品コンセプト検討までの期間が短縮。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ 商品企画責任者様</strong>「社内に使える人が増えた実感があります」</p>
+      </div>
+      <!-- 12 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 12 ／ 金融</span><p class="case-attr">証券会社／リスク管理部</p></div>
+        <p class="case-title">レポート作成プロセスを再設計</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">レポート作成業務に効率化の課題があった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">リスク管理20名向けの4段階研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">定型レポート作成プロセスを再設計し、業務負荷を軽減。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ リスク管理マネージャー様</strong>「リスク部門でも安心して使えるAI活用法を学べました」</p>
+      </div>
+      <!-- 13 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 13 ／ 住宅・不動産</span><p class="case-attr">大手住宅メーカー／賃貸管理事業部</p></div>
+        <p class="case-title">トップ営業の暗黙知を、形式知化</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">トップ営業の音声トークと判断ロジックが属人化し、組織として再現できていなかった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">音声トーク収集→AIによる形式知化と、顧客潜在ニーズ分析・物件レコメンドのプロンプト設計まで伴走。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">新任営業のロープレ品質が向上、初動の応対水準が均質化。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ 営業推進責任者様</strong>「暗黙知を組織の資産に変えるという発想は、自社にはなかった」</p>
+      </div>
+      <!-- 14 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 14 ／ 住宅・不動産</span><p class="case-attr">ハウスメーカー／用地開発部</p></div>
+        <p class="case-title">用地評価とドラフト企画の高速化</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">用地評価・周辺事例分析・企画書ドラフトに、ベテランの工数が集中していた。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">周辺賃料・売買事例の自動抽出、開発企画書ドラフトのプロンプト整備を伴走。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">初期検討の工数が短縮、ベテランは判断・交渉に時間を割けるように。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ 用地開発部長様</strong>「用地評価という"職人芸"の領域を、AIで再現していくための実装の勘所を学べた」</p>
+      </div>
+      <!-- 15 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 15 ／ 住宅・不動産</span><p class="case-attr">不動産仲介／営業部</p></div>
+        <p class="case-title">提案メール・比較表の自動生成で、営業の動き方を変える</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">顧客要望ベースの提案メールや物件比較表の作成に、毎回多くの工数がかかっていた。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">営業12名向けに、要望→提案メール・比較表の自動生成プロンプト整備とハンズオン研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">初動の提案速度が大幅に向上、商談あたりの接点回数が増加。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ 営業マネージャー様</strong>「提案準備にかかっていた時間を、顧客との対話に回せるようになりました」</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA② ===================== -->
+<section class="cta-block">
+  <h2>助成金活用シミュレーションを、無料でご提示します</h2>
+  <div class="cta-row">
+    <a href="#contact" class="btn btn-primary btn-stacked">
+      <span class="btn-main">補助額を今すぐチェック</span>
+      <span class="btn-sub">30分のオンライン無料相談</span>
+    </a>
+    <a href="#download" class="btn btn-secondary btn-stacked">
+      <span class="btn-main">助成金活用ガイドDL</span>
+      <span class="btn-sub">申請要件・補助率まとめ</span>
+    </a>
+  </div>
+</section>
+
 <!-- ===================== 他社との違い（比較表）===================== -->
 <section class="compare">
   <div class="section-inner">
@@ -1979,209 +2182,6 @@
         </a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ===================== 事例セクション（タブ式）===================== -->
-<section class="cases" id="cases">
-  <div class="section-inner">
-    <p class="section-eyebrow">CASE STUDIES</p>
-    <h2 class="section-title">業界別・業務別に最適化した<span class="accent">AXカリキュラム設計</span></h2>
-    <p class="section-desc">全業種・全部門を一律のテンプレートで進めるのではなく、貴社の業界・組織課題・業務シナリオに合わせて専用カリキュラムをカスタマイズして設計します。<br>業界タブを切り替えて、貴社の業界に近い事例をご覧ください。</p>
-
-    <div class="case-tabs" id="caseTabs">
-      <button class="case-tab active" data-target="all">すべて<span class="count">15</span></button>
-      <button class="case-tab" data-target="manufacturing">製造業<span class="count">3</span></button>
-      <button class="case-tab" data-target="it">IT・SaaS<span class="count">3</span></button>
-      <button class="case-tab" data-target="retail">小売・EC<span class="count">3</span></button>
-      <button class="case-tab" data-target="finance">金融<span class="count">3</span></button>
-      <button class="case-tab" data-target="housing">住宅・不動産<span class="count">3</span></button>
-    </div>
-
-    <!-- ALL -->
-    <div class="case-panel active" data-panel="all">
-      <!-- 全15件 -->
-      <!-- 1 -->
-      <div class="case-card">
-        <div class="case-header"><span class="case-label">CASE 01 ／ 製造業</span><p class="case-attr">大手電機メーカー／生産技術部</p></div>
-        <p class="case-title">設備保全レポートの自動化PoCで、研修内容を業務に定着</p>
-        <div class="case-body">
-          <div class="case-block"><p class="title">課題</p><p class="text">「AIを使え」という方針はあるものの、現場でどこから着手するか判断できなかった。</p></div>
-          <div class="case-block"><p class="title">実施</p><p class="text">4段階研修と、3ヶ月の伴走による生成AI×設備保全レポート自動化PoC。</p></div>
-          <div class="case-block"><p class="title">変化</p><p class="text">受講者10名がそれぞれ自身の業務にAIを組み込み、月次レポート作成業務に手応えを実感。</p></div>
-        </div>
-        <p class="case-voice"><strong>Voice ／ 管理職様</strong>「現場が"AIを動かせる"状態になるまで伴走してくれました」</p>
-      </div>
-      <!-- 2 -->
-      <div class="case-card">
-        <div class="case-header"><span class="case-label">CASE 02 ／ 製造業</span><p class="case-attr">自動車部品メーカー／購買部</p></div>
-        <p class="case-title">属人化していた見積査定業務の立ち上がりを支援</p>
-        <div class="case-body">
-          <div class="case-block"><p class="title">課題</p><p class="text">見積査定業務が属人化し、新任メンバーの立ち上がりに時間がかかっていた。</p></div>
-          <div class="case-block"><p class="title">実施</p><p class="text">購買15名向け業界特化型カリキュラム＋データ取込テンプレ整備伴走。</p></div>
-          <div class="case-block"><p class="title">変化</p><p class="text">見積比較の初動スピードが向上、新任メンバーの立ち上がり期間が短縮。</p></div>
-        </div>
-        <p class="case-voice"><strong>Voice ／ マネージャー様</strong>「研修翌週から業務が変わる感触があった」</p>
-      </div>
-      <!-- 3 -->
-      <div class="case-card">
-        <div class="case-header"><span class="case-label">CASE 03 ／ 製造業</span><p class="case-attr">食品メーカー／経営企画部</p></div>
-        <p class="case-title">部門間のリテラシー格差を、層別設計で底上げ</p>
-        <div class="case-body">
-          <div class="case-block"><p class="title">課題</p><p class="text">DXを推進したいが、社内のAIリテラシーに大きな格差があった。</p></div>
-          <div class="case-block"><p class="title">実施</p><p class="text">経営企画と各事業部キーマン20名を対象に、4段階研修を実施。</p></div>
-          <div class="case-block"><p class="title">変化</p><p class="text">各部門でAI活用提案が自発的に上がる文化への変化がみられた。</p></div>
-        </div>
-        <p class="case-voice"><strong>Voice ／ DX推進担当役員様</strong>「全社のリテラシーが底上げされました」</p>
-      </div>
-      <!-- 4 -->
-      <div class="case-card">
-        <div class="case-header"><span class="case-label">CASE 04 ／ IT・SaaS</span><p class="case-attr">SaaSスタートアップ／プロダクト開発部</p></div>
-        <p class="case-title">AIコーディングツールの実装研修で、開発スピードを加速</p>
-        <div class="case-body">
-          <div class="case-block"><p class="title">課題</p><p class="text">Cursor／Claude Code等のAIコーディングツールを使い切れていなかった。</p></div>
-          <div class="case-block"><p class="title">実施</p><p class="text">エンジニア20名向けの実装研修と、週次伴走を実施。</p></div>
-          <div class="case-block"><p class="title">変化</p><p class="text">開発スピードに体感の手応え。新メンバーのオンボード期間も短縮。</p></div>
-        </div>
-        <p class="case-voice"><strong>Voice ／ CTO様</strong>「実装に踏み込んだ実践的な内容で、業務への持ち帰りがスムーズでした」</p>
-      </div>
-      <!-- 5 -->
-      <div class="case-card">
-        <div class="case-header"><span class="case-label">CASE 05 ／ IT・SaaS</span><p class="case-attr">上場IT企業／マーケティング部</p></div>
-        <p class="case-title">AI広告クリエイティブ制作の運用定着まで設計</p>
-        <div class="case-body">
-          <div class="case-block"><p class="title">課題</p><p class="text">生成AIをマーケに組み込みたいが、運用が継続しなかった。</p></div>
-          <div class="case-block"><p class="title">実施</p><p class="text">マーケティング12名向けにAI広告クリエイティブの実装研修を実施。</p></div>
-          <div class="case-block"><p class="title">変化</p><p class="text">AI広告制作パイプラインが社内に定着。</p></div>
-        </div>
-        <p class="case-voice"><strong>Voice ／ マーケティング責任者様</strong>「やって終わりではなく、続く設計が秀逸」</p>
-      </div>
-      <!-- 6 -->
-      <div class="case-card">
-        <div class="case-header"><span class="case-label">CASE 06 ／ IT・SaaS</span><p class="case-attr">IT受託開発／営業部</p></div>
-        <p class="case-title">提案書作成業務へのAI活用を、習慣化レベルまで支援</p>
-        <div class="case-body">
-          <div class="case-block"><p class="title">課題</p><p class="text">提案書作成に時間がかかり、商談数が伸び悩んでいた。</p></div>
-          <div class="case-block"><p class="title">実施</p><p class="text">営業10名向けの3日間集中研修を実施。</p></div>
-          <div class="case-block"><p class="title">変化</p><p class="text">提案書ドラフトをAIで作成する習慣が定着。</p></div>
-        </div>
-        <p class="case-voice"><strong>Voice ／ 営業マネージャー様</strong>「現場で本当に使う技術を学べました」</p>
-      </div>
-      <!-- 7 -->
-      <div class="case-card">
-        <div class="case-header"><span class="case-label">CASE 07 ／ 小売・EC</span><p class="case-attr">大手小売チェーン／EC運営部</p></div>
-        <p class="case-title">商品ページ制作のリードタイム短縮を実現</p>
-        <div class="case-body">
-          <div class="case-block"><p class="title">課題</p><p class="text">商品ページ制作が滞留し、新商品の掲載が遅れがちだった。</p></div>
-          <div class="case-block"><p class="title">実施</p><p class="text">EC担当8名向けに、生成AIの実装研修を実施。</p></div>
-          <div class="case-block"><p class="title">変化</p><p class="text">商品ページ作成のリードタイムが短縮、掲載点数が増加。</p></div>
-        </div>
-        <p class="case-voice"><strong>Voice ／ EC責任者様</strong>「効果が見える研修だった」</p>
-      </div>
-      <!-- 8 -->
-      <div class="case-card">
-        <div class="case-header"><span class="case-label">CASE 08 ／ 小売・EC</span><p class="case-attr">ホームセンターチェーン／MD部</p></div>
-        <p class="case-title">販売データ分析の属人化を解消</p>
-        <div class="case-body">
-          <div class="case-block"><p class="title">課題</p><p class="text">販売データ分析が属人化していた。</p></div>
-          <div class="case-block"><p class="title">実施</p><p class="text">MD12名向けに、データ分析×AIをテーマとした研修を実施。</p></div>
-          <div class="case-block"><p class="title">変化</p><p class="text">店長会で発信される販促企画にAI仮説が増加。</p></div>
-        </div>
-        <p class="case-voice"><strong>Voice ／ MD責任者様</strong>「現場の言葉でAIを語れるようになりました」</p>
-      </div>
-      <!-- 9 -->
-      <div class="case-card">
-        <div class="case-header"><span class="case-label">CASE 09 ／ 小売・EC</span><p class="case-attr">アパレルブランド／店舗運営部</p></div>
-        <p class="case-title">店舗ごとのリテラシー格差を一律で底上げ</p>
-        <div class="case-body">
-          <div class="case-block"><p class="title">課題</p><p class="text">店舗ごとにPC・AIリテラシーの格差があった。</p></div>
-          <div class="case-block"><p class="title">実施</p><p class="text">エリアマネージャーと店長合計30名向けの基礎研修を実施。</p></div>
-          <div class="case-block"><p class="title">変化</p><p class="text">店舗発信のSNSコンテンツがAIで内製化。</p></div>
-        </div>
-        <p class="case-voice"><strong>Voice ／ エリアマネージャー様</strong>「全店一律のリテラシー底上げに効いた」</p>
-      </div>
-      <!-- 10 -->
-      <div class="case-card">
-        <div class="case-header"><span class="case-label">CASE 10 ／ 金融</span><p class="case-attr">大手金融機関／リテール営業部</p></div>
-        <p class="case-title">セキュリティ要件まで踏み込んだAI活用研修</p>
-        <div class="case-body">
-          <div class="case-block"><p class="title">課題</p><p class="text">営業会議資料作成が業務を圧迫していた。</p></div>
-          <div class="case-block"><p class="title">実施</p><p class="text">営業40名向けのAI活用研修と、セキュリティガイドラインの整備を支援。</p></div>
-          <div class="case-block"><p class="title">変化</p><p class="text">会議資料の準備時間が短縮、商談数が増加。</p></div>
-        </div>
-        <p class="case-voice"><strong>Voice ／ 営業部長様</strong>「金融特有のセキュリティ要件まで踏み込んだ研修だった」</p>
-      </div>
-      <!-- 11 -->
-      <div class="case-card">
-        <div class="case-header"><span class="case-label">CASE 11 ／ 金融</span><p class="case-attr">保険会社／商品企画部</p></div>
-        <p class="case-title">商品開発リサーチの加速を支援</p>
-        <div class="case-body">
-          <div class="case-block"><p class="title">課題</p><p class="text">商品開発のリサーチに時間がかかっていた。</p></div>
-          <div class="case-block"><p class="title">実施</p><p class="text">企画15名向けに、リサーチ業務へのAI実装研修を実施。</p></div>
-          <div class="case-block"><p class="title">変化</p><p class="text">商品コンセプト検討までの期間が短縮。</p></div>
-        </div>
-        <p class="case-voice"><strong>Voice ／ 商品企画責任者様</strong>「社内に使える人が増えた実感があります」</p>
-      </div>
-      <!-- 12 -->
-      <div class="case-card">
-        <div class="case-header"><span class="case-label">CASE 12 ／ 金融</span><p class="case-attr">証券会社／リスク管理部</p></div>
-        <p class="case-title">レポート作成プロセスを再設計</p>
-        <div class="case-body">
-          <div class="case-block"><p class="title">課題</p><p class="text">レポート作成業務に効率化の課題があった。</p></div>
-          <div class="case-block"><p class="title">実施</p><p class="text">リスク管理20名向けの4段階研修を実施。</p></div>
-          <div class="case-block"><p class="title">変化</p><p class="text">定型レポート作成プロセスを再設計し、業務負荷を軽減。</p></div>
-        </div>
-        <p class="case-voice"><strong>Voice ／ リスク管理マネージャー様</strong>「リスク部門でも安心して使えるAI活用法を学べました」</p>
-      </div>
-      <!-- 13 -->
-      <div class="case-card">
-        <div class="case-header"><span class="case-label">CASE 13 ／ 住宅・不動産</span><p class="case-attr">大手住宅メーカー／賃貸管理事業部</p></div>
-        <p class="case-title">トップ営業の暗黙知を、形式知化</p>
-        <div class="case-body">
-          <div class="case-block"><p class="title">課題</p><p class="text">トップ営業の音声トークと判断ロジックが属人化し、組織として再現できていなかった。</p></div>
-          <div class="case-block"><p class="title">実施</p><p class="text">音声トーク収集→AIによる形式知化と、顧客潜在ニーズ分析・物件レコメンドのプロンプト設計まで伴走。</p></div>
-          <div class="case-block"><p class="title">変化</p><p class="text">新任営業のロープレ品質が向上、初動の応対水準が均質化。</p></div>
-        </div>
-        <p class="case-voice"><strong>Voice ／ 営業推進責任者様</strong>「暗黙知を組織の資産に変えるという発想は、自社にはなかった」</p>
-      </div>
-      <!-- 14 -->
-      <div class="case-card">
-        <div class="case-header"><span class="case-label">CASE 14 ／ 住宅・不動産</span><p class="case-attr">ハウスメーカー／用地開発部</p></div>
-        <p class="case-title">用地評価とドラフト企画の高速化</p>
-        <div class="case-body">
-          <div class="case-block"><p class="title">課題</p><p class="text">用地評価・周辺事例分析・企画書ドラフトに、ベテランの工数が集中していた。</p></div>
-          <div class="case-block"><p class="title">実施</p><p class="text">周辺賃料・売買事例の自動抽出、開発企画書ドラフトのプロンプト整備を伴走。</p></div>
-          <div class="case-block"><p class="title">変化</p><p class="text">初期検討の工数が短縮、ベテランは判断・交渉に時間を割けるように。</p></div>
-        </div>
-        <p class="case-voice"><strong>Voice ／ 用地開発部長様</strong>「用地評価という"職人芸"の領域を、AIで再現していくための実装の勘所を学べた」</p>
-      </div>
-      <!-- 15 -->
-      <div class="case-card">
-        <div class="case-header"><span class="case-label">CASE 15 ／ 住宅・不動産</span><p class="case-attr">不動産仲介／営業部</p></div>
-        <p class="case-title">提案メール・比較表の自動生成で、営業の動き方を変える</p>
-        <div class="case-body">
-          <div class="case-block"><p class="title">課題</p><p class="text">顧客要望ベースの提案メールや物件比較表の作成に、毎回多くの工数がかかっていた。</p></div>
-          <div class="case-block"><p class="title">実施</p><p class="text">営業12名向けに、要望→提案メール・比較表の自動生成プロンプト整備とハンズオン研修を実施。</p></div>
-          <div class="case-block"><p class="title">変化</p><p class="text">初動の提案速度が大幅に向上、商談あたりの接点回数が増加。</p></div>
-        </div>
-        <p class="case-voice"><strong>Voice ／ 営業マネージャー様</strong>「提案準備にかかっていた時間を、顧客との対話に回せるようになりました」</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CTA② ===================== -->
-<section class="cta-block">
-  <h2>助成金活用シミュレーションを、無料でご提示します</h2>
-  <div class="cta-row">
-    <a href="#contact" class="btn btn-primary btn-stacked">
-      <span class="btn-main">補助額を今すぐチェック</span>
-      <span class="btn-sub">30分のオンライン無料相談</span>
-    </a>
-    <a href="#download" class="btn btn-secondary btn-stacked">
-      <span class="btn-main">助成金活用ガイドDL</span>
-      <span class="btn-sub">申請要件・補助率まとめ</span>
-    </a>
   </div>
 </section>
 
