@@ -1521,7 +1521,88 @@
     .benefit-grid, .case-panel.active { grid-template-columns: 1fr; }
     .program-grid { grid-template-columns: 1fr; gap: 14px; }
     .program-card.recommended { transform: none; }
-    .levels-grid { grid-template-columns: 1fr 1fr; }
+    .levels-grid { grid-template-columns: 1fr; gap: 10px; }
+    .level-card { padding: 16px 16px; }
+    .level-card .lv { font-size: 12px; }
+    .level-card p { font-size: 12.5px; }
+    /* タイムテーブルをSPではカード型に再構成 */
+    .timetable { overflow-x: visible; padding: 0; background: transparent; border: none; }
+    .timetable table, .timetable thead, .timetable tbody, .timetable tr, .timetable th, .timetable td {
+      display: block;
+      width: 100%;
+    }
+    .timetable thead { display: none; }
+    .timetable tbody tr {
+      background: #fff;
+      border: 1px solid var(--line-light);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .timetable tbody tr::before {
+      content: attr(data-theme);
+      display: block;
+      font-size: 11px;
+      color: var(--primary);
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .timetable td {
+      padding: 4px 0;
+      border-bottom: none;
+      font-size: 12.5px;
+      line-height: 1.7;
+    }
+    .timetable td:nth-of-type(1) {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+    .timetable td:nth-of-type(2) {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--body-text);
+      padding: 0;
+    }
+    .timetable td:nth-of-type(3) {
+      padding-top: 8px;
+      color: var(--body-gray);
+    }
+    .timetable td:nth-of-type(4) {
+      display: inline-block;
+      background: var(--accent-sub);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10.5px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+    .timetable tr.total {
+      background: var(--primary-gradient);
+      color: #fff;
+      text-align: center;
+    }
+    .timetable tr.total td:nth-of-type(1) {
+      background: rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 16px;
+      padding: 6px 14px;
+    }
+    .timetable tr.total td:nth-of-type(2) {
+      color: #fff;
+      font-size: 14px;
+    }
+    .timetable tr.total td:nth-of-type(3),
+    .timetable tr.total td:nth-of-type(4) { display: none; }
     .plan3-detail { padding: 24px 18px; }
     .plan3-detail-header h3 { font-size: 20px; }
     .subsidy-flow { grid-template-columns: 1fr 1fr; }
@@ -1785,8 +1866,8 @@
     <p class="section-desc">全業種・全部門を一律のテンプレートで進めるのではなく、貴社の業界・組織課題・業務シナリオに合わせて専用カリキュラムをカスタマイズして設計します。<br>業界タブを切り替えて、貴社の業界に近い事例をご覧ください。</p>
 
     <div class="case-tabs" id="caseTabs">
-      <button class="case-tab active" data-target="all">すべて<span class="count">15</span></button>
-      <button class="case-tab" data-target="manufacturing">製造業<span class="count">3</span></button>
+      <button class="case-tab" data-target="all">すべて<span class="count">15</span></button>
+      <button class="case-tab active" data-target="manufacturing">製造業<span class="count">3</span></button>
       <button class="case-tab" data-target="it">IT・SaaS<span class="count">3</span></button>
       <button class="case-tab" data-target="retail">小売・EC<span class="count">3</span></button>
       <button class="case-tab" data-target="finance">金融<span class="count">3</span></button>
@@ -2557,22 +2638,26 @@
     finance: ['金融'],
     housing: ['住宅・不動産']
   };
+  function applyFilter(target) {
+    allCases.forEach(card => {
+      const label = card.querySelector('.case-label').textContent;
+      if (target === 'all') {
+        card.style.display = 'flex';
+      } else {
+        const keywords = categoryMap[target] || [];
+        card.style.display = keywords.some(k => label.includes(k)) ? 'flex' : 'none';
+      }
+    });
+  }
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-      const target = tab.dataset.target;
-      allCases.forEach(card => {
-        const label = card.querySelector('.case-label').textContent;
-        if (target === 'all') {
-          card.style.display = 'flex';
-        } else {
-          const keywords = categoryMap[target] || [];
-          card.style.display = keywords.some(k => label.includes(k)) ? 'flex' : 'none';
-        }
-      });
+      applyFilter(tab.dataset.target);
     });
   });
+  // 初期表示：製造業
+  applyFilter('manufacturing');
 
   // ===== 講師カルーセル =====
   const track = document.getElementById('carouselTrack');
