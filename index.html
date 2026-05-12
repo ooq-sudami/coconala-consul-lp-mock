@@ -1,0 +1,2591 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ココナラコンサル｜AX研修LP 修正モックアップ（初回配信版）</title>
+<style>
+  :root {
+    --primary: #6651ff;
+    --primary-dark: #3f2fb6;
+    --primary-light: #8b7cff;
+    --base-bg: #f6f5ff;
+    --secondary: #f0f4ff;
+    --body-text: #00044f;
+    --body-gray: #282828;
+    --accent: #f5156b;
+    --accent-sub: #feebf2;
+    --line: #bcb2ff;
+    --line-light: #ccc4ff;
+    --gold: #d3b981;
+    --gold-light: #ffe2ab;
+    --cta-gradient: linear-gradient(90deg, #ffe2ab 0%, #e6cb93 52%, #d3b981 100%);
+    --primary-gradient: linear-gradient(90deg, #8b7cff, #3f2fb6);
+    --recommend-gradient: linear-gradient(135deg, #f5156b 0%, #6651ff 100%);
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans JP', 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', sans-serif;
+    color: var(--body-text);
+    line-height: 1.7;
+    background: #fff;
+    font-size: 15px;
+  }
+
+  .edit-banner {
+    background: #fffbe6;
+    border-bottom: 1px solid #f5d76e;
+    padding: 10px 20px;
+    font-size: 13px;
+    color: #7a5d00;
+    text-align: center;
+  }
+  .edit-banner strong { color: #b07a00; }
+
+  .new-badge, .edit-badge, .placeholder-badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+  }
+  .new-badge { background: var(--accent); color: #fff; }
+  .edit-badge { background: #fff3cd; color: #856404; border: 1px solid #f5d76e; }
+  .placeholder-badge { background: #e8e8e8; color: #555; border: 1px dashed #999; }
+
+  /* === ヘッダー（追従固定） === */
+  header.site-header {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line-light);
+    z-index: 100;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--body-text);
+  }
+  .logo span { color: var(--primary); }
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    font-size: 13px;
+  }
+  .header-nav a { color: var(--body-gray); text-decoration: none; }
+  .header-cta {
+    background: var(--primary);
+    color: #fff !important;
+    padding: 9px 18px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  /* === FV === */
+  .fv {
+    position: relative;
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(143,124,255,0.18), transparent 60%),
+      radial-gradient(ellipse at 10% 90%, rgba(245,21,107,0.06), transparent 50%),
+      var(--base-bg);
+    padding: 70px 40px 60px;
+    overflow: hidden;
+  }
+  .fv-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .fv-eyecatch {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: 0.04em;
+  }
+  .fv-subsidy-badge {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    background: var(--cta-gradient);
+    color: #4a3500;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(211,185,129,0.4);
+    line-height: 1.4;
+    text-align: center;
+    z-index: 2;
+  }
+  .fv-subsidy-badge strong { font-size: 22px; display: block; }
+  .fv h1 {
+    font-size: 38px;
+    line-height: 1.4;
+    font-weight: 800;
+    color: var(--body-text);
+  }
+  .fv h1 .accent-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .fv-sub-list {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .fv-sub-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--body-text);
+    font-weight: 600;
+  }
+  .fv-sub-num {
+    flex-shrink: 0;
+    background: var(--primary);
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .fv-cta-row {
+    display: flex;
+    gap: 14px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 26px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    min-width: 230px;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 6px 14px rgba(102,81,255,0.25);
+  }
+  .btn-primary:hover { background: var(--primary-dark); }
+  .btn-secondary {
+    background: #fff;
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+  .btn-gold {
+    background: var(--cta-gradient);
+    color: #4a3500;
+    box-shadow: 0 6px 14px rgba(211,185,129,0.35);
+  }
+  .btn-arrow::after { content: " →"; margin-left: 4px; }
+  .btn.btn-stacked {
+    flex-direction: column;
+    padding: 13px 24px;
+    line-height: 1.3;
+  }
+  .btn.btn-stacked .btn-main { font-size: 15px; font-weight: 700; }
+  .btn.btn-stacked .btn-main::after { content: " →"; margin-left: 4px; }
+  .btn.btn-stacked .btn-sub { font-size: 10.5px; opacity: 0.85; font-weight: 500; margin-top: 3px; }
+  .btn.btn-stacked.btn-arrow::after { content: ""; margin: 0; }
+
+  .fv-visual {
+    background: linear-gradient(135deg, #fff 0%, #fafaff 100%);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(102,81,255,0.15);
+    text-align: center;
+  }
+  .fv-visual-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 13px;
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+  .fv-visual-caption { font-size: 12px; color: #777; }
+
+  /* === ロゴmarquee === */
+  .logo-marquee {
+    background: #fff;
+    border-top: 1px solid var(--line-light);
+    border-bottom: 1px solid var(--line-light);
+    padding: 24px 0;
+    overflow: hidden;
+  }
+  .logo-marquee-label {
+    text-align: center;
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-bottom: 14px;
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 50s linear infinite;
+    gap: 60px;
+  }
+  .marquee-logo {
+    flex-shrink: 0;
+    height: 50px;
+    min-width: 160px;
+    background: var(--base-bg);
+    border: 1px solid var(--line-light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #888;
+    font-size: 13px;
+    padding: 0 18px;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* === セクション共通 === */
+  section { padding: 80px 40px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow {
+    text-align: center;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--body-text);
+    margin-bottom: 24px;
+    line-height: 1.4;
+  }
+  .section-title .accent {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .section-desc {
+    text-align: center;
+    color: var(--body-gray);
+    font-size: 15px;
+    line-height: 1.9;
+    max-width: 820px;
+    margin: 0 auto 40px;
+  }
+
+  /* === 課題共感セクション === */
+  .pain { background: var(--white); }
+  .pain-list {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--base-bg);
+    border-radius: 16px;
+    padding: 36px 40px;
+    border: 1px solid var(--line-light);
+  }
+  .pain-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--line-light);
+    font-size: 15px;
+    color: var(--body-text);
+  }
+  .pain-item:last-child { border-bottom: none; }
+  .pain-check {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: var(--primary);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .pain-item strong { color: var(--primary); }
+
+  /* === ベネフィットセクション（3つの強み × 3つの成果） === */
+  .benefit { background: linear-gradient(180deg, var(--base-bg) 0%, #fff 100%); }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .benefit-card {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid var(--line-light);
+    box-shadow: 0 8px 24px rgba(102,81,255,0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .benefit-strength {
+    padding: 28px 24px 22px;
+    text-align: center;
+    background: linear-gradient(180deg, #fff 0%, var(--base-bg) 100%);
+    flex: 1;
+  }
+  .benefit-num {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+  .benefit-label {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    padding: 3px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .benefit-strength h3 {
+    font-size: 17px;
+    color: var(--body-text);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .benefit-strength p {
+    font-size: 13px;
+    color: var(--body-gray);
+    line-height: 1.8;
+    text-align: left;
+  }
+  .benefit-result {
+    background: var(--accent-sub);
+    padding: 18px 24px;
+    border-top: 2px dashed var(--accent);
+  }
+  .benefit-result-label {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .benefit-result h4 {
+    font-size: 14px;
+    color: var(--accent);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .benefit-result p {
+    font-size: 12px;
+    color: var(--body-gray);
+    line-height: 1.75;
+  }
+  .benefit-arrow {
+    text-align: center;
+    color: var(--accent);
+    font-size: 20px;
+    font-weight: 800;
+    margin: -4px 0 -4px;
+  }
+
+  /* === 他社との違いセクション === */
+  .compare {
+    background: #fff;
+  }
+  .compare-table-wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    overflow-x: auto;
+  }
+  .compare-note {
+    text-align: center;
+    background: #fffbe6;
+    border: 1px dashed #f5d76e;
+    color: #7a5d00;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .compare-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--line-light);
+    box-shadow: 0 10px 30px rgba(102,81,255,0.08);
+  }
+  .compare-table th,
+  .compare-table td {
+    padding: 18px 18px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--line-light);
+    font-size: 14px;
+  }
+  .compare-table thead th {
+    background: var(--base-bg);
+    text-align: center;
+    font-size: 13px;
+    color: var(--body-text);
+    font-weight: 700;
+    padding: 22px 18px;
+  }
+  .compare-table thead th.our {
+    background: var(--primary-gradient);
+    color: #fff;
+    position: relative;
+    font-size: 15px;
+  }
+  .compare-table thead th.our::before {
+    content: "★ ココナラコンサル";
+    display: block;
+    font-size: 11px;
+    opacity: 0.9;
+    margin-bottom: 2px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .compare-table th.row-label {
+    background: var(--base-bg);
+    width: 28%;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .compare-table td.other {
+    color: #888;
+    background: #fafafa;
+    text-align: center;
+  }
+  .compare-table td.our {
+    background: #fff;
+    text-align: center;
+    color: var(--body-text);
+    font-weight: 700;
+    position: relative;
+  }
+  .compare-table td.our::before {
+    content: "◎";
+    color: var(--accent);
+    margin-right: 6px;
+    font-size: 16px;
+  }
+  .compare-table tr:last-child th,
+  .compare-table tr:last-child td {
+    border-bottom: none;
+  }
+  .compare-placeholder {
+    color: #999;
+    font-style: italic;
+    font-size: 12px;
+    background: repeating-linear-gradient(
+      45deg,
+      #fafafa,
+      #fafafa 6px,
+      #f0f0f0 6px,
+      #f0f0f0 12px
+    );
+    border: 1px dashed #ccc;
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  /* === CTAブロック === */
+  .cta-block {
+    background: var(--primary-gradient);
+    padding: 50px 40px;
+    text-align: center;
+    color: #fff;
+  }
+  .cta-block h2 {
+    font-size: 22px;
+    margin-bottom: 22px;
+    font-weight: 700;
+  }
+  .cta-block .btn-primary {
+    background: #fff;
+    color: var(--primary);
+  }
+  .cta-block .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border-color: #fff;
+  }
+  .cta-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* === PROGRAM（プラン）===================== */
+  .program { background: #fff; }
+  .program-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.25fr 1fr;
+    gap: 18px;
+    align-items: stretch;
+    margin-bottom: 50px;
+  }
+  .program-card {
+    background: var(--base-bg);
+    border-radius: 16px;
+    padding: 28px 22px;
+    border: 1px solid var(--line-light);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .program-card.recommended {
+    background: linear-gradient(180deg, #fff 0%, var(--accent-sub) 100%);
+    border: 3px solid var(--accent);
+    box-shadow: 0 20px 40px rgba(245,21,107,0.18);
+    transform: translateY(-12px);
+    z-index: 2;
+  }
+  .recommend-badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--recommend-gradient);
+    color: #fff;
+    padding: 7px 18px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    box-shadow: 0 6px 14px rgba(245,21,107,0.35);
+  }
+  .recommend-badge::before { content: "★ "; }
+  .program-card .plan {
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+  .program-card.recommended .plan { color: var(--accent); }
+  .program-card h3 {
+    font-size: 18px;
+    color: var(--body-text);
+    margin: 6px 0 8px;
+    line-height: 1.4;
+  }
+  .program-card.recommended h3 { font-size: 20px; }
+  .program-card .time {
+    background: var(--primary);
+    color: #fff;
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .program-card.recommended .time { background: var(--accent); }
+  .program-card p {
+    font-size: 12.5px;
+    line-height: 1.8;
+    color: var(--body-gray);
+    margin-bottom: 14px;
+    flex: 1;
+  }
+  .scene-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .scene-tag {
+    background: #fff;
+    color: var(--primary);
+    border: 1px solid var(--primary-light);
+    padding: 3px 9px;
+    border-radius: 4px;
+    font-size: 10px;
+  }
+  .program-card.recommended .scene-tag { border-color: var(--accent); color: var(--accent); }
+
+  /* === PLAN 03 詳細セクション（PROGRAM直下にぶら下げる）=== */
+  .plan3-detail {
+    background: linear-gradient(135deg, #fff 0%, var(--accent-sub) 100%);
+    border-radius: 24px;
+    padding: 40px;
+    border: 3px solid var(--accent);
+    position: relative;
+    margin-top: 30px;
+  }
+  .plan3-detail::before {
+    content: "▲";
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--accent);
+    font-size: 26px;
+  }
+  .plan3-detail-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .plan3-detail-header .badge {
+    background: var(--recommend-gradient);
+    color: #fff;
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+  }
+  .plan3-detail-header h3 {
+    font-size: 26px;
+    color: var(--body-text);
+    line-height: 1.4;
+  }
+  .plan3-detail-header h3 .accent {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .plan3-detail-header p {
+    font-size: 14px;
+    color: var(--body-gray);
+    margin-top: 12px;
+    line-height: 1.85;
+  }
+  .levels-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 30px;
+  }
+  .level-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 16px;
+    border: 1px solid var(--line-light);
+    border-top: 4px solid var(--primary);
+  }
+  .level-card .lv {
+    font-size: 11px;
+    color: var(--primary);
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .level-card .tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-bottom: 8px;
+  }
+  .level-card .tools span {
+    background: var(--base-bg);
+    color: var(--primary);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .level-card p {
+    font-size: 11.5px;
+    color: var(--body-gray);
+    line-height: 1.6;
+  }
+  .timetable-note {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 14px;
+    line-height: 1.7;
+  }
+  .timetable {
+    overflow-x: auto;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid var(--line-light);
+    padding: 6px;
+  }
+  .timetable table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .timetable th {
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 10px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .timetable td {
+    padding: 11px 10px;
+    border-bottom: 1px solid var(--line-light);
+    vertical-align: top;
+    line-height: 1.7;
+  }
+  .timetable tr.total td {
+    background: var(--base-bg);
+    font-weight: 800;
+    color: var(--primary);
+  }
+  .timetable td strong { color: var(--primary); }
+
+  /* === 事例セクション（タブ式）=== */
+  .cases { background: var(--base-bg); }
+  .case-tabs {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+    padding: 0 10px;
+  }
+  .case-tab {
+    background: #fff;
+    color: var(--body-text);
+    border: 2px solid var(--line-light);
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .case-tab:hover { border-color: var(--primary); color: var(--primary); }
+  .case-tab.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 6px 14px rgba(102,81,255,0.25);
+  }
+  .case-tab .count {
+    background: rgba(255,255,255,0.25);
+    margin-left: 6px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    font-size: 11px;
+  }
+  .case-tab:not(.active) .count {
+    background: var(--base-bg);
+    color: var(--primary);
+  }
+  .case-panel {
+    display: none;
+  }
+  .case-panel.active {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .case-card {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid var(--line-light);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 6px 16px rgba(102,81,255,0.05);
+  }
+  .case-header {
+    background: var(--primary-gradient);
+    color: #fff;
+    padding: 14px 18px;
+  }
+  .case-label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 10px;
+    margin-bottom: 6px;
+  }
+  .case-attr {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .case-title {
+    padding: 18px 18px 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--body-text);
+    line-height: 1.5;
+  }
+  .case-body {
+    padding: 14px 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .case-block {
+    border-left: 3px solid var(--primary-light);
+    padding-left: 10px;
+  }
+  .case-block .title {
+    font-size: 11px;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .case-block .text {
+    font-size: 12px;
+    color: var(--body-gray);
+    line-height: 1.7;
+  }
+  .case-voice {
+    background: var(--base-bg);
+    padding: 12px 18px;
+    border-top: 1px solid var(--line-light);
+    font-size: 12px;
+    color: var(--body-text);
+    line-height: 1.6;
+  }
+  .case-voice strong { color: var(--primary); display: block; margin-bottom: 3px; font-size: 11px; }
+
+  /* === 講師・代表メンバー（カルーセル）=== */
+  .lecturer { background: #fff; }
+  .carousel-wrap {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .carousel-viewport {
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  .carousel-slide {
+    flex-shrink: 0;
+    width: 100%;
+    padding: 10px;
+  }
+  .lecturer-card {
+    background: linear-gradient(135deg, #fff 0%, var(--base-bg) 100%);
+    border-radius: 20px;
+    border: 1px solid var(--line-light);
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 36px;
+    align-items: flex-start;
+    box-shadow: 0 12px 30px rgba(102,81,255,0.08);
+  }
+  .lecturer-photo {
+    aspect-ratio: 1/1.15;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    padding: 20px;
+    line-height: 1.6;
+  }
+  .lecturer-info .role {
+    background: var(--accent);
+    color: #fff;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .lecturer-info .role.member { background: var(--primary); }
+  .lecturer-info h3 {
+    font-size: 26px;
+    color: var(--body-text);
+    margin-bottom: 2px;
+  }
+  .lecturer-info .name-en {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 18px;
+    letter-spacing: 0.05em;
+  }
+  .lecturer-info p.bio {
+    font-size: 13px;
+    line-height: 1.95;
+    color: var(--body-gray);
+    margin-bottom: 18px;
+  }
+  .lecturer-themes {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    border-left: 4px solid var(--primary);
+  }
+  .lecturer-themes h4 {
+    font-size: 12px;
+    color: var(--primary);
+    margin-bottom: 6px;
+  }
+  .lecturer-themes ul { list-style: none; }
+  .lecturer-themes li {
+    font-size: 12.5px;
+    color: var(--body-text);
+    padding: 2px 0 2px 16px;
+    position: relative;
+    line-height: 1.7;
+  }
+  .lecturer-themes li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+  }
+  .lecturer-quote {
+    background: var(--accent-sub);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 12.5px;
+    line-height: 1.85;
+    color: var(--body-text);
+    border-left: 4px solid var(--accent);
+  }
+  .lecturer-quote strong {
+    color: var(--accent);
+    display: block;
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+  .placeholder-block {
+    background: #fafafa;
+    border: 2px dashed #ccc;
+    color: #888;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    z-index: 3;
+    transition: all 0.2s;
+  }
+  .carousel-arrow:hover {
+    background: var(--primary);
+    color: #fff;
+  }
+  .carousel-arrow.prev { left: -20px; }
+  .carousel-arrow.next { right: -20px; }
+  .carousel-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+  .carousel-dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 22px;
+  }
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--line-light);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .carousel-dot.active {
+    background: var(--primary);
+    width: 28px;
+    border-radius: 999px;
+  }
+
+  /* === 助成金セクション（独立）=== */
+  .subsidy {
+    background:
+      radial-gradient(ellipse at 80% 30%, rgba(255,226,171,0.4), transparent 60%),
+      linear-gradient(135deg, #fffaf0 0%, #fff5e0 100%);
+    border-top: 1px solid var(--gold-light);
+    border-bottom: 1px solid var(--gold-light);
+  }
+  .subsidy-hero {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .subsidy-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .subsidy-big {
+    font-size: 22px;
+    color: var(--body-text);
+    line-height: 1.5;
+    font-weight: 800;
+    margin-bottom: 14px;
+  }
+  .subsidy-big .num {
+    font-size: 60px;
+    background: linear-gradient(135deg, var(--accent), #c89a3e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    line-height: 1;
+    margin: 0 6px;
+  }
+  .subsidy-system {
+    font-size: 14px;
+    color: var(--body-gray);
+    margin-bottom: 10px;
+  }
+  .subsidy-deadline {
+    background: var(--accent);
+    color: #fff;
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 8px;
+  }
+  .subsidy-flow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  .subsidy-step {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px 12px;
+    text-align: center;
+    border: 2px solid var(--gold);
+    position: relative;
+  }
+  .subsidy-step .num {
+    background: var(--gold);
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  .subsidy-step h4 {
+    font-size: 13px;
+    color: var(--body-text);
+    line-height: 1.4;
+  }
+  .subsidy-disclaimer {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto 22px;
+  }
+  .subsidy-cta {
+    text-align: center;
+  }
+
+  /* === 料金＆フロー === */
+  .pricing { background: var(--base-bg); }
+  .pricing-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px;
+    border: 2px solid var(--gold);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+  }
+  .pricing-card .label {
+    font-size: 13px;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .price-display {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+  }
+  .price-display .per {
+    font-size: 14px;
+    color: #999;
+    font-weight: 500;
+  }
+  .price-display .num {
+    font-size: 64px;
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.1;
+  }
+  .price-display .yen {
+    font-size: 28px;
+    color: var(--body-text);
+    font-weight: 800;
+  }
+  .price-display .from {
+    font-size: 22px;
+    color: var(--body-text);
+    font-weight: 800;
+  }
+  .pricing-card .price-desc {
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--body-gray);
+    line-height: 1.8;
+  }
+  .pricing-card .subsidy-callout {
+    background: var(--accent-sub);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .pricing-card .subsidy-callout .big-num {
+    font-size: 22px;
+    margin: 0 4px;
+  }
+  .pricing-notes {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.8;
+    margin-top: 22px;
+    text-align: left;
+  }
+  .pricing-notes p { margin-bottom: 6px; }
+  .pricing-cta { margin-top: 22px; }
+
+  .flow-title {
+    text-align: center;
+    font-size: 22px;
+    color: var(--body-text);
+    margin-bottom: 30px;
+    font-weight: 700;
+  }
+  .flow-timeline {
+    max-width: 880px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .flow-step-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 22px;
+    position: relative;
+    padding-bottom: 28px;
+  }
+  .flow-step-row::before {
+    content: "";
+    position: absolute;
+    left: 55px;
+    top: 90px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--line) 0%, var(--line-light) 100%);
+    z-index: 0;
+  }
+  .flow-step-row:last-child::before { display: none; }
+  .flow-step-marker {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .flow-step-marker .num-circle {
+    width: 88px;
+    height: 88px;
+    background: var(--primary-gradient);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    box-shadow: 0 8px 18px rgba(102,81,255,0.25);
+    line-height: 1;
+  }
+  .flow-step-marker .num-label { font-size: 10px; opacity: 0.9; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .flow-step-marker .num-num { font-size: 26px; font-weight: 800; }
+  .flow-step-marker .step-time {
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--primary);
+    font-weight: 700;
+    background: #fff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    border: 1px solid var(--line-light);
+  }
+  .flow-step-content {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px 26px;
+    border: 1px solid var(--line-light);
+    box-shadow: 0 4px 14px rgba(102,81,255,0.06);
+  }
+  .flow-step-content h3 {
+    font-size: 18px;
+    color: var(--body-text);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .flow-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .flow-meta-item {
+    background: var(--base-bg);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12px;
+    line-height: 1.65;
+  }
+  .flow-meta-item .meta-label {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 10.5px;
+    display: block;
+    margin-bottom: 3px;
+    letter-spacing: 0.05em;
+  }
+  .flow-meta-item .meta-text { color: var(--body-gray); }
+
+  /* === FAQ（アコーディオン）=== */
+  .faq { background: #fff; }
+  .faq-list { max-width: 820px; margin: 0 auto; }
+  .faq-item {
+    background: var(--base-bg);
+    border-radius: 12px;
+    margin-bottom: 14px;
+    border: 1px solid var(--line-light);
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 20px 26px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--body-text);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: 1.5;
+  }
+  .faq-q .q-mark {
+    background: var(--primary);
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+  .faq-q .q-text { flex: 1; }
+  .faq-q .toggle {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    color: var(--primary);
+    font-size: 20px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+  }
+  .faq-item.open .faq-q .toggle { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .faq-a-inner {
+    padding: 0 26px 22px 64px;
+    font-size: 13.5px;
+    color: var(--body-gray);
+    line-height: 1.9;
+  }
+
+  /* === 最終CTA === */
+  .final-cta {
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(255,226,171,0.25), transparent 60%),
+      var(--primary-gradient);
+    padding: 80px 40px;
+    text-align: center;
+    color: #fff;
+  }
+  .final-cta h2 {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .final-cta p {
+    font-size: 15px;
+    margin-bottom: 32px;
+    opacity: 0.95;
+    line-height: 1.85;
+  }
+  .final-cta .btn-primary {
+    background: var(--cta-gradient);
+    color: #4a3500;
+    min-width: 280px;
+  }
+  .final-cta .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border-color: #fff;
+    min-width: 280px;
+  }
+  .final-cta .deadline {
+    margin-top: 28px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    font-size: 13px;
+  }
+  .final-cta .deadline strong { color: var(--gold-light); }
+
+  /* === フッター === */
+  footer {
+    background: var(--body-text);
+    color: #fff;
+    padding: 50px 40px 24px;
+    text-align: center;
+    font-size: 12px;
+  }
+  footer .footer-logo {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  footer .footer-logo span { color: var(--primary-light); }
+  footer .links {
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  footer a { color: #ccc4ff; text-decoration: none; font-size: 12px; }
+  footer .copyright { opacity: 0.7; }
+
+  /* === レスポンシブ === */
+  @media (max-width: 900px) {
+    section { padding: 60px 18px; }
+    .fv { padding: 50px 18px 50px; }
+    .fv-inner { grid-template-columns: 1fr; gap: 30px; }
+    .fv h1 { font-size: 26px; }
+    .fv-subsidy-badge { top: auto; right: 18px; bottom: -10px; padding: 8px 12px; font-size: 11px; }
+    .fv-subsidy-badge strong { font-size: 16px; }
+    .section-title { font-size: 22px; }
+    .benefit-grid, .case-panel.active { grid-template-columns: 1fr; }
+    .program-grid { grid-template-columns: 1fr; gap: 14px; }
+    .program-card.recommended { transform: none; }
+    .levels-grid { grid-template-columns: 1fr 1fr; }
+    .plan3-detail { padding: 24px 18px; }
+    .plan3-detail-header h3 { font-size: 20px; }
+    .subsidy-flow { grid-template-columns: 1fr 1fr; }
+    .flow-step-row { grid-template-columns: 70px 1fr; gap: 14px; }
+    .flow-step-row::before { left: 35px; top: 70px; }
+    .flow-step-marker .num-circle { width: 60px; height: 60px; }
+    .flow-step-marker .num-num { font-size: 18px; }
+    .flow-step-marker .num-label { font-size: 8px; }
+    .flow-meta { grid-template-columns: 1fr; }
+    .flow-step-content { padding: 18px 16px; }
+    .flow-step-content h3 { font-size: 15px; }
+    .lecturer-card { grid-template-columns: 1fr; padding: 24px; }
+    .btn { min-width: 100%; }
+    .fv-cta-row { flex-direction: column; gap: 10px; }
+    header.site-header { padding: 12px 18px; }
+    .header-nav a:not(.header-cta) { display: none; }
+    .final-cta h2 { font-size: 22px; }
+    .price-display .num { font-size: 48px; }
+    .carousel-arrow.prev { left: -8px; }
+    .carousel-arrow.next { right: -8px; }
+    .carousel-arrow { width: 38px; height: 38px; font-size: 14px; }
+    .subsidy-big .num { font-size: 44px; }
+    .case-tab { padding: 8px 12px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 編集メモバー -->
+<div class="edit-banner">
+  <strong>【制作担当者様へ】</strong> 本ファイルは「初回配信用LP（ベータ版）」の修正イメージです。<span class="new-badge">新規</span>=新設／<span class="edit-badge">修正</span>=既存差し替え／<span class="placeholder-badge">要情報</span>=貴社からの情報提供待ち。指示書（coconala-consul-lp-shijisho.md）と併せてご確認ください。
+</div>
+
+<!-- ===================== ヘッダー（追従固定） ===================== -->
+<header class="site-header">
+  <div class="logo">ココナラ<span>コンサル</span></div>
+  <nav class="header-nav">
+    <a href="#program">プログラム</a>
+    <a href="#cases">活用事例</a>
+    <a href="#lecturer">講師・メンバー</a>
+    <a href="#subsidy">助成金</a>
+    <a href="#pricing">料金</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="header-cta">まずは無料で相談する</a>
+  </nav>
+</header>
+
+<!-- ===================== ファーストビュー ===================== -->
+<section class="fv">
+  <div class="fv-subsidy-badge">
+    最大<strong>75%</strong>補助対象<br>
+    <span style="font-size:10px;">人材開発支援助成金</span>
+  </div>
+  <div class="fv-inner">
+    <div>
+      <span class="fv-eyecatch">法人企業向け／エンタープライズ対応</span>
+      <h1>
+        AIを「導入」で<br>終わらせない。<br>
+        事業変革への<br>
+        <span class="accent-text">実践型AX研修</span>
+      </h1>
+      <div class="fv-sub-list">
+        <div class="fv-sub-item"><span class="fv-sub-num">01</span>マッキンゼー社デジタルグループ出身講師によるカリキュラム設計</div>
+        <div class="fv-sub-item"><span class="fv-sub-num">02</span>人材開発支援助成金で最大75%補助対象（2027年3月31日まで）<span class="edit-badge">修正</span></div>
+        <div class="fv-sub-item"><span class="fv-sub-num">03</span>貴社カスタムメイドの AI業務実装まで徹底伴走</div>
+      </div>
+      <div class="fv-cta-row">
+        <a href="#contact" class="btn btn-primary btn-stacked">
+          <span class="btn-main">まずは無料で相談する</span>
+          <span class="btn-sub">30分のオンラインMTG・無料</span>
+        </a>
+        <a href="#download" class="btn btn-secondary btn-stacked">
+          <span class="btn-main">資料をダウンロード</span>
+          <span class="btn-sub">サービス概要・事例まとめ</span>
+        </a>
+      </div>
+    </div>
+    <div class="fv-visual">
+      <div class="fv-visual-img">
+        〔 主任講師による研修の様子の画像 〕<br>
+        <span style="opacity:0.85;font-size:11px;">※ 元LPの画像をそのまま流用</span>
+      </div>
+      <p class="fv-visual-caption">主任講師：石田 慶太（マッキンゼー出身）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ロゴmarquee ===================== -->
+<section class="logo-marquee" style="padding:30px 0;">
+  <p class="logo-marquee-label">CLIENTS ／ ご支援実績（業界例）</p>
+  <div class="marquee-track">
+    <div class="marquee-logo">大手電機メーカー</div>
+    <div class="marquee-logo">自動車部品メーカー</div>
+    <div class="marquee-logo">食品メーカー</div>
+    <div class="marquee-logo">SaaSスタートアップ</div>
+    <div class="marquee-logo">上場IT企業</div>
+    <div class="marquee-logo">IT受託開発</div>
+    <div class="marquee-logo">大手小売チェーン</div>
+    <div class="marquee-logo">ホームセンター</div>
+    <div class="marquee-logo">アパレルブランド</div>
+    <div class="marquee-logo">大手金融機関</div>
+    <div class="marquee-logo">保険会社</div>
+    <div class="marquee-logo">証券会社</div>
+    <div class="marquee-logo">大手住宅メーカー</div>
+    <div class="marquee-logo">ハウスメーカー</div>
+    <div class="marquee-logo">不動産仲介</div>
+    <!-- 2周目 -->
+    <div class="marquee-logo">大手電機メーカー</div>
+    <div class="marquee-logo">自動車部品メーカー</div>
+    <div class="marquee-logo">食品メーカー</div>
+    <div class="marquee-logo">SaaSスタートアップ</div>
+    <div class="marquee-logo">上場IT企業</div>
+    <div class="marquee-logo">IT受託開発</div>
+    <div class="marquee-logo">大手小売チェーン</div>
+    <div class="marquee-logo">ホームセンター</div>
+    <div class="marquee-logo">アパレルブランド</div>
+    <div class="marquee-logo">大手金融機関</div>
+    <div class="marquee-logo">保険会社</div>
+    <div class="marquee-logo">証券会社</div>
+    <div class="marquee-logo">大手住宅メーカー</div>
+    <div class="marquee-logo">ハウスメーカー</div>
+    <div class="marquee-logo">不動産仲介</div>
+  </div>
+</section>
+
+<!-- ===================== 課題共感セクション ===================== -->
+<section class="pain">
+  <div class="section-inner">
+    <p class="section-eyebrow">SUCH A PROBLEM</p>
+    <h2 class="section-title">こんな<span class="accent">AI活用・人材育成のお悩み</span>はありませんか？</h2>
+    <div class="pain-list">
+      <div class="pain-item"><span class="pain-check">✓</span><span>AIツールを導入したが、<strong>現場で活用されず形骸化している</strong></span></div>
+      <div class="pain-item"><span class="pain-check">✓</span><span>生成AIの研修は受けたが、<strong>業務に落とし込めていない</strong></span></div>
+      <div class="pain-item"><span class="pain-check">✓</span><span>部門ごとにAIリテラシーの<strong>ばらつきが大きい</strong></span></div>
+      <div class="pain-item"><span class="pain-check">✓</span><span>DX推進の方針はあるが、<strong>具体的な業務適用が進まない</strong></span></div>
+      <div class="pain-item"><span class="pain-check">✓</span><span>助成金を使ってAI研修を導入したいが、<strong>申請が複雑で手が出せない</strong></span></div>
+      <div class="pain-item"><span class="pain-check">✓</span><span>経営層・管理職向けと現場向けで、<strong>同じ研修では物足りない</strong></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ベネフィットセクション（3つの強み × 3つの成果） ===================== -->
+<section class="benefit">
+  <div class="section-inner">
+    <p class="section-eyebrow">OUR STRENGTH × RESULT</p>
+    <h2 class="section-title">ココナラコンサルの<span class="accent">3つの強み</span>と、<br>得られる<span class="accent">3つの成果</span></h2>
+    <p class="section-desc">サービスの強みが、そのまま貴社に持ち帰っていただける成果に直結します。</p>
+    <div class="benefit-grid">
+
+      <div class="benefit-card">
+        <div class="benefit-strength">
+          <div class="benefit-num">①</div>
+          <span class="benefit-label">STRENGTH</span>
+          <h3>マッキンゼー出身の<br>主任講師による設計・監修</h3>
+          <p>マッキンゼーのDX方法論「Rewired」コアリーダー経験を持つ石田氏が、研修体系の設計から登壇まで一貫して担当。経営戦略視点と実装視点の両方を備えた、貴社専用カリキュラムを設計します。</p>
+        </div>
+        <div class="benefit-arrow">▼</div>
+        <div class="benefit-result">
+          <span class="benefit-result-label">RESULT</span>
+          <h4>業務に直結する実装力</h4>
+          <p>「知る」「触る」で終わらず、各部門の業務へAIを実装するまで伴走。研修翌週から業務フローが変わる状態を目指します。</p>
+        </div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-strength">
+          <div class="benefit-num">②</div>
+          <span class="benefit-label">STRENGTH</span>
+          <h3>業界×業務でフルカスタム<br>設計（15業界の実績）</h3>
+          <p>製造／IT／小売／金融／住宅・不動産など、業界・業務ごとのユースケースに即してカリキュラムをフルカスタム。階層別（経営層／管理職／現場）のレベル設計にも対応します。</p>
+        </div>
+        <div class="benefit-arrow">▼</div>
+        <div class="benefit-result">
+          <span class="benefit-result-label">RESULT</span>
+          <h4>全社リテラシー底上げ</h4>
+          <p>経営層・管理職・現場担当者まで階層ごとに最適化。属人化を防ぎ、組織全体のAI活用度を底上げします。</p>
+        </div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-strength">
+          <div class="benefit-num">③</div>
+          <span class="benefit-label">STRENGTH</span>
+          <h3>助成金申請から<br>業務実装PoCまで伴走</h3>
+          <p>人材開発支援助成金（事業展開等リスキリング支援コース）の申請伴走と、研修後の業務実装PoC・継続支援を一気通貫でご提供。研修だけで終わらせない設計です。</p>
+        </div>
+        <div class="benefit-arrow">▼</div>
+        <div class="benefit-result">
+          <span class="benefit-result-label">RESULT</span>
+          <h4>助成金活用で最大75%補助＋実装定着</h4>
+          <p>中小企業は最大75%補助の活用が可能。さらに研修後3ヶ月〜の伴走で、業務への定着・効果実感までを支援します。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 他社との違い（比較表）===================== -->
+<section class="compare">
+  <div class="section-inner">
+    <p class="section-eyebrow">DIFFERENCE</p>
+    <h2 class="section-title">他社の研修サービスとの<span class="accent">違い</span><span class="new-badge">新規</span></h2>
+    <p class="section-desc">一般的な研修サービスと、ココナラコンサルのAX研修との違いを整理しています。</p>
+
+    <div class="compare-table-wrap">
+      <div class="compare-note">
+        <strong>【制作担当者様 ＆ ご担当者様へ】</strong> 比較項目および各セルの記載内容は<strong>貴社にて埋めていただく前提</strong>のプレースホルダーです。<br>
+        「こういうフォーマットで他社との違いを訴求したい」という意図のご共有として、体裁のみご用意しております。確定軸が決まり次第、文言を差し替えてください。
+      </div>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="other">一般的な<br>研修サービス</th>
+            <th class="our">AX研修</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="row-label">比較項目 ①<br><span class="compare-placeholder">例：カリキュラム</span></th>
+            <td class="other"><span class="compare-placeholder">例：汎用パッケージ</span></td>
+            <td class="our"><span class="compare-placeholder">例：業界×業務でフルカスタム</span></td>
+          </tr>
+          <tr>
+            <th class="row-label">比較項目 ②<br><span class="compare-placeholder">例：講師の専門性</span></th>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
+            <td class="our"><span class="compare-placeholder">記載内容</span></td>
+          </tr>
+          <tr>
+            <th class="row-label">比較項目 ③<br><span class="compare-placeholder">例：業務実装支援</span></th>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
+            <td class="our"><span class="compare-placeholder">記載内容</span></td>
+          </tr>
+          <tr>
+            <th class="row-label">比較項目 ④<br><span class="compare-placeholder">例：助成金対応</span></th>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
+            <td class="our"><span class="compare-placeholder">記載内容</span></td>
+          </tr>
+          <tr>
+            <th class="row-label">比較項目 ⑤<br><span class="compare-placeholder">例：研修後の継続支援</span></th>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
+            <td class="our"><span class="compare-placeholder">記載内容</span></td>
+          </tr>
+          <tr>
+            <th class="row-label">比較項目 ⑥<br><span class="compare-placeholder">必要に応じて追加</span></th>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
+            <td class="our"><span class="compare-placeholder">記載内容</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA① ===================== -->
+<section class="cta-block">
+  <h2>貴社の業界・課題に合わせた研修プランを、専任担当者がご提案します</h2>
+  <div class="cta-row">
+    <a href="#contact" class="btn btn-primary btn-stacked">
+      <span class="btn-main">まずは無料で相談する</span>
+      <span class="btn-sub">30分のオンラインMTG・無料</span>
+    </a>
+    <a href="#download" class="btn btn-secondary btn-stacked">
+      <span class="btn-main">資料をダウンロード</span>
+      <span class="btn-sub">サービス概要・事例まとめ</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== PROGRAM（プランラインナップ）===================== -->
+<section class="program" id="program">
+  <div class="section-inner">
+    <p class="section-eyebrow">PROGRAM</p>
+    <h2 class="section-title">AX研修<span class="accent">ラインナップ</span></h2>
+    <p class="section-desc">時間・規模・目的に応じて、4つの基本プランをご用意。<strong>最も多くご利用いただいているのは「PLAN 03 業務実装プログラム」</strong>。助成金対象で、業務実装まで一気通貫で支援します。</p>
+
+    <div class="program-grid">
+      <div class="program-card">
+        <p class="plan">PLAN 01</p>
+        <h3>基調講演・社内イベント招聘</h3>
+        <span class="time">1〜3時間</span>
+        <p>経営層・管理職向けのキックオフや全社イベントに、主任講師が基調講演・パネル登壇のかたちで登壇。AI戦略の方針共有や全社のマインドセット形成に。</p>
+        <div class="scene-tags">
+          <span class="scene-tag">全社イベント</span>
+          <span class="scene-tag">キックオフ</span>
+          <span class="scene-tag">役員向け</span>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <p class="plan">PLAN 02</p>
+        <h3>集中ワークショップ</h3>
+        <span class="time">半日〜1日</span>
+        <p>チーム単位のリテラシー底上げを目的とした、ハンズオン形式の集中プログラム。短期間で「触れる→使える」段階まで到達。</p>
+        <div class="scene-tags">
+          <span class="scene-tag">部門別研修</span>
+          <span class="scene-tag">チーム単位</span>
+          <span class="scene-tag">合宿型</span>
+        </div>
+      </div>
+
+      <div class="program-card recommended">
+        <span class="recommend-badge">最もおすすめ／助成金対象</span>
+        <p class="plan">PLAN 03</p>
+        <h3>業務実装プログラム</h3>
+        <span class="time">10時間以上／標準12時間</span>
+        <p>4段階（知る／理解する／業務実装／効果実感）の標準カリキュラムで、業務実装まで一気通貫。<strong>人材開発支援助成金のリスキリングコース申請要件（10時間以上）に適合</strong>。貴社の業界・業務に合わせてカスタマイズ。</p>
+        <div class="scene-tags">
+          <span class="scene-tag">全社AX推進</span>
+          <span class="scene-tag">業務実装ハンズオン</span>
+          <span class="scene-tag">業務別カスタマイズ</span>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <p class="plan">PLAN 04</p>
+        <h3>フルパッケージ</h3>
+        <span class="time">中長期</span>
+        <p>AI研修（基盤醸成）＋全社AIロードマップ策定支援＋AIエージェント／アプリケーション開発。経営戦略レイヤーまで踏み込む統合パッケージ。</p>
+        <div class="scene-tags">
+          <span class="scene-tag">DX中期計画</span>
+          <span class="scene-tag">AI導入ロードマップ</span>
+          <span class="scene-tag">統合プロジェクト</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLAN 03 詳細を直下にぶら下げる -->
+    <div class="plan3-detail">
+      <div class="plan3-detail-header">
+        <span class="badge">★ 最もおすすめのPLAN 03 ／ 詳細カリキュラム</span>
+        <h3>PLAN 03 のカリキュラムは、<span class="accent">これです。</span></h3>
+        <p>受講者の到達レベルを4段階で設計し、「知る」から「効果実感」までを業務実装で繋げます。<br>マッキンゼー出身の業務改善のプロが、実務実装を徹底サポートします。</p>
+      </div>
+
+      <div class="levels-grid">
+        <div class="level-card">
+          <p class="lv">Lv.1 ／ 知る</p>
+          <p>生成AIの存在を知っており、触れたことはあるが、殆ど活用していない。</p>
+        </div>
+        <div class="level-card">
+          <p class="lv">Lv.2 ／ 理解する</p>
+          <div class="tools"><span>ChatGPT</span><span>Gemini</span><span>Copilot</span></div>
+          <p>生成AIの基礎知識があり、日常的に使用。点での活用に留まっており、業務に活かしきれていない。</p>
+        </div>
+        <div class="level-card">
+          <p class="lv">Lv.3 ／ 業務実装</p>
+          <div class="tools"><span>GPTs</span><span>P.E.</span><span>NotebookLM</span></div>
+          <p>高度なプロンプトで業務に必要なクオリティのアウトプットを出力。思考の高度化・作業の効率化を実現。</p>
+        </div>
+        <div class="level-card">
+          <p class="lv">Lv.4 ／ 効果実感</p>
+          <div class="tools"><span>Dify</span><span>GAS</span><span>Make</span><span>Zapier</span></div>
+          <p>ノーコード／ローコードツールでワークフロー構築。生成AIを組み込んだ業務フロー開発で、社内プロセスを変えられる。</p>
+        </div>
+      </div>
+
+      <p class="timetable-note">人材開発支援助成金（事業展開等リスキリング支援コース）の申請要件である、<strong>"実訓練時間10時間以上"</strong>を満たしたプログラム構成例です。</p>
+
+      <div class="timetable">
+        <table>
+          <thead>
+            <tr><th style="width:50px;">時間</th><th style="width:140px;">テーマ</th><th>詳細</th><th style="width:80px;">形態</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1.0h</td><td>基礎・リテラシー</td><td>生成AIの基礎と最新動向／LLMの仕組みとセキュリティ／主要モデルの違いと使い分け</td><td>講義</td></tr>
+            <tr><td>1.0h</td><td>プロンプト<br>エンジニアリング</td><td>指示出しのテクニックの習得／役割・制約・出力形式を組み込んだ実践プロンプト設計／「条件付き指示」「Few-Shot（例示）」による精度向上</td><td>講義＋演習</td></tr>
+            <tr><td>1.5h</td><td>GAS構築の基礎</td><td>GASの概要と構築手順／生成AIを用いた実践的なGASコード生成／生成AIとGASの連携によるオペレーション構築</td><td>講義＋演習</td></tr>
+            <tr><td>1.0h</td><td>NotebookLM</td><td><strong>「音声・ログデータ」の資産化（RAG）</strong>／顧客接点業務：商談録音の解析／面談・ヒアリング業務：ログの深層分析</td><td>演習</td></tr>
+            <tr><td>2.5h</td><td>GASを用いた<br>業務効率化実践</td><td><strong>管理業務のGAS活用による自動化</strong>／経営管理・予算管理：収益ダッシュボード自動生成／KPIマネジメント</td><td>演習</td></tr>
+            <tr><td>1.5h</td><td>Gems実践</td><td><strong>自分専用AIパートナーの作成</strong>／ドキュメント要約：情報要約Bot／ロールプレイ：AI壁打ちパートナー</td><td>演習</td></tr>
+            <tr><td>1.5h</td><td>Workspace Studio＆<br>自動化実践</td><td><strong>業務プロセスのバックグラウンド自動化</strong>／データ連携／メール対応の自動判定</td><td>演習</td></tr>
+            <tr class="total"><td>10.0h</td><td>TOTAL</td><td colspan="2"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="text-align:center;margin-top:24px;">
+        <a href="#contact" class="btn btn-primary btn-stacked">
+          <span class="btn-main">PLAN 03について相談する</span>
+          <span class="btn-sub">30分のオンラインMTG・無料</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 事例セクション（タブ式）===================== -->
+<section class="cases" id="cases">
+  <div class="section-inner">
+    <p class="section-eyebrow">CASE STUDIES</p>
+    <h2 class="section-title">業界別・業務別に最適化した<span class="accent">AXカリキュラム設計</span></h2>
+    <p class="section-desc">全業種・全部門を一律のテンプレートで進めるのではなく、貴社の業界・組織課題・業務シナリオに合わせて専用カリキュラムをカスタマイズして設計します。<br>業界タブを切り替えて、貴社の業界に近い事例をご覧ください。</p>
+
+    <div class="case-tabs" id="caseTabs">
+      <button class="case-tab active" data-target="all">すべて<span class="count">15</span></button>
+      <button class="case-tab" data-target="manufacturing">製造業<span class="count">3</span></button>
+      <button class="case-tab" data-target="it">IT・SaaS<span class="count">3</span></button>
+      <button class="case-tab" data-target="retail">小売・EC<span class="count">3</span></button>
+      <button class="case-tab" data-target="finance">金融<span class="count">3</span></button>
+      <button class="case-tab" data-target="housing">住宅・不動産<span class="count">3</span></button>
+    </div>
+
+    <!-- ALL -->
+    <div class="case-panel active" data-panel="all">
+      <!-- 全15件 -->
+      <!-- 1 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 01 ／ 製造業</span><p class="case-attr">大手電機メーカー／生産技術部</p></div>
+        <p class="case-title">設備保全レポートの自動化PoCで、研修内容を業務に定着</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">「AIを使え」という方針はあるものの、現場でどこから着手するか判断できなかった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">4段階研修と、3ヶ月の伴走による生成AI×設備保全レポート自動化PoC。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">受講者10名がそれぞれ自身の業務にAIを組み込み、月次レポート作成業務に手応えを実感。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ 管理職様</strong>「現場が"AIを動かせる"状態になるまで伴走してくれました」</p>
+      </div>
+      <!-- 2 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 02 ／ 製造業</span><p class="case-attr">自動車部品メーカー／購買部</p></div>
+        <p class="case-title">属人化していた見積査定業務の立ち上がりを支援</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">見積査定業務が属人化し、新任メンバーの立ち上がりに時間がかかっていた。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">購買15名向け業界特化型カリキュラム＋データ取込テンプレ整備伴走。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">見積比較の初動スピードが向上、新任メンバーの立ち上がり期間が短縮。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ マネージャー様</strong>「研修翌週から業務が変わる感触があった」</p>
+      </div>
+      <!-- 3 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 03 ／ 製造業</span><p class="case-attr">食品メーカー／経営企画部</p></div>
+        <p class="case-title">部門間のリテラシー格差を、層別設計で底上げ</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">DXを推進したいが、社内のAIリテラシーに大きな格差があった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">経営企画と各事業部キーマン20名を対象に、4段階研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">各部門でAI活用提案が自発的に上がる文化への変化がみられた。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ DX推進担当役員様</strong>「全社のリテラシーが底上げされました」</p>
+      </div>
+      <!-- 4 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 04 ／ IT・SaaS</span><p class="case-attr">SaaSスタートアップ／プロダクト開発部</p></div>
+        <p class="case-title">AIコーディングツールの実装研修で、開発スピードを加速</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">Cursor／Claude Code等のAIコーディングツールを使い切れていなかった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">エンジニア20名向けの実装研修と、週次伴走を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">開発スピードに体感の手応え。新メンバーのオンボード期間も短縮。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ CTO様</strong>「実装に踏み込んだ実践的な内容で、業務への持ち帰りがスムーズでした」</p>
+      </div>
+      <!-- 5 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 05 ／ IT・SaaS</span><p class="case-attr">上場IT企業／マーケティング部</p></div>
+        <p class="case-title">AI広告クリエイティブ制作の運用定着まで設計</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">生成AIをマーケに組み込みたいが、運用が継続しなかった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">マーケティング12名向けにAI広告クリエイティブの実装研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">AI広告制作パイプラインが社内に定着。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ マーケティング責任者様</strong>「やって終わりではなく、続く設計が秀逸」</p>
+      </div>
+      <!-- 6 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 06 ／ IT・SaaS</span><p class="case-attr">IT受託開発／営業部</p></div>
+        <p class="case-title">提案書作成業務へのAI活用を、習慣化レベルまで支援</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">提案書作成に時間がかかり、商談数が伸び悩んでいた。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">営業10名向けの3日間集中研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">提案書ドラフトをAIで作成する習慣が定着。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ 営業マネージャー様</strong>「現場で本当に使う技術を学べました」</p>
+      </div>
+      <!-- 7 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 07 ／ 小売・EC</span><p class="case-attr">大手小売チェーン／EC運営部</p></div>
+        <p class="case-title">商品ページ制作のリードタイム短縮を実現</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">商品ページ制作が滞留し、新商品の掲載が遅れがちだった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">EC担当8名向けに、生成AIの実装研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">商品ページ作成のリードタイムが短縮、掲載点数が増加。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ EC責任者様</strong>「効果が見える研修だった」</p>
+      </div>
+      <!-- 8 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 08 ／ 小売・EC</span><p class="case-attr">ホームセンターチェーン／MD部</p></div>
+        <p class="case-title">販売データ分析の属人化を解消</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">販売データ分析が属人化していた。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">MD12名向けに、データ分析×AIをテーマとした研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">店長会で発信される販促企画にAI仮説が増加。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ MD責任者様</strong>「現場の言葉でAIを語れるようになりました」</p>
+      </div>
+      <!-- 9 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 09 ／ 小売・EC</span><p class="case-attr">アパレルブランド／店舗運営部</p></div>
+        <p class="case-title">店舗ごとのリテラシー格差を一律で底上げ</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">店舗ごとにPC・AIリテラシーの格差があった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">エリアマネージャーと店長合計30名向けの基礎研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">店舗発信のSNSコンテンツがAIで内製化。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ エリアマネージャー様</strong>「全店一律のリテラシー底上げに効いた」</p>
+      </div>
+      <!-- 10 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 10 ／ 金融</span><p class="case-attr">大手金融機関／リテール営業部</p></div>
+        <p class="case-title">セキュリティ要件まで踏み込んだAI活用研修</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">営業会議資料作成が業務を圧迫していた。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">営業40名向けのAI活用研修と、セキュリティガイドラインの整備を支援。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">会議資料の準備時間が短縮、商談数が増加。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ 営業部長様</strong>「金融特有のセキュリティ要件まで踏み込んだ研修だった」</p>
+      </div>
+      <!-- 11 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 11 ／ 金融</span><p class="case-attr">保険会社／商品企画部</p></div>
+        <p class="case-title">商品開発リサーチの加速を支援</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">商品開発のリサーチに時間がかかっていた。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">企画15名向けに、リサーチ業務へのAI実装研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">商品コンセプト検討までの期間が短縮。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ 商品企画責任者様</strong>「社内に使える人が増えた実感があります」</p>
+      </div>
+      <!-- 12 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 12 ／ 金融</span><p class="case-attr">証券会社／リスク管理部</p></div>
+        <p class="case-title">レポート作成プロセスを再設計</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">レポート作成業務に効率化の課題があった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">リスク管理20名向けの4段階研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">定型レポート作成プロセスを再設計し、業務負荷を軽減。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ リスク管理マネージャー様</strong>「リスク部門でも安心して使えるAI活用法を学べました」</p>
+      </div>
+      <!-- 13 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 13 ／ 住宅・不動産</span><p class="case-attr">大手住宅メーカー／賃貸管理事業部</p></div>
+        <p class="case-title">トップ営業の暗黙知を、形式知化</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">トップ営業の音声トークと判断ロジックが属人化し、組織として再現できていなかった。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">音声トーク収集→AIによる形式知化と、顧客潜在ニーズ分析・物件レコメンドのプロンプト設計まで伴走。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">新任営業のロープレ品質が向上、初動の応対水準が均質化。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ 営業推進責任者様</strong>「暗黙知を組織の資産に変えるという発想は、自社にはなかった」</p>
+      </div>
+      <!-- 14 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 14 ／ 住宅・不動産</span><p class="case-attr">ハウスメーカー／用地開発部</p></div>
+        <p class="case-title">用地評価とドラフト企画の高速化</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">用地評価・周辺事例分析・企画書ドラフトに、ベテランの工数が集中していた。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">周辺賃料・売買事例の自動抽出、開発企画書ドラフトのプロンプト整備を伴走。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">初期検討の工数が短縮、ベテランは判断・交渉に時間を割けるように。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ 用地開発部長様</strong>「用地評価という"職人芸"の領域を、AIで再現していくための実装の勘所を学べた」</p>
+      </div>
+      <!-- 15 -->
+      <div class="case-card">
+        <div class="case-header"><span class="case-label">CASE 15 ／ 住宅・不動産</span><p class="case-attr">不動産仲介／営業部</p></div>
+        <p class="case-title">提案メール・比較表の自動生成で、営業の動き方を変える</p>
+        <div class="case-body">
+          <div class="case-block"><p class="title">課題</p><p class="text">顧客要望ベースの提案メールや物件比較表の作成に、毎回多くの工数がかかっていた。</p></div>
+          <div class="case-block"><p class="title">実施</p><p class="text">営業12名向けに、要望→提案メール・比較表の自動生成プロンプト整備とハンズオン研修を実施。</p></div>
+          <div class="case-block"><p class="title">変化</p><p class="text">初動の提案速度が大幅に向上、商談あたりの接点回数が増加。</p></div>
+        </div>
+        <p class="case-voice"><strong>Voice ／ 営業マネージャー様</strong>「提案準備にかかっていた時間を、顧客との対話に回せるようになりました」</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA② ===================== -->
+<section class="cta-block">
+  <h2>貴社の業界・業務に合わせたAX研修プラン、無料でご提案します</h2>
+  <div class="cta-row">
+    <a href="#contact" class="btn btn-primary btn-stacked">
+      <span class="btn-main">まずは無料で相談する</span>
+      <span class="btn-sub">30分のオンラインMTG・無料</span>
+    </a>
+    <a href="#download" class="btn btn-secondary btn-stacked">
+      <span class="btn-main">資料をダウンロード</span>
+      <span class="btn-sub">サービス概要・事例まとめ</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== 講師・代表メンバー（カルーセル）===================== -->
+<section class="lecturer" id="lecturer">
+  <div class="section-inner">
+    <p class="section-eyebrow">LECTURER & MEMBERS</p>
+    <h2 class="section-title">研修<span class="accent">講師・推進メンバー</span></h2>
+    <p class="section-desc">主任講師とプロジェクト推進メンバーが、貴社の課題に合わせて一気通貫でご支援します。<br>左右の矢印で切り替えてご覧ください。</p>
+
+    <div class="carousel-wrap">
+      <button class="carousel-arrow prev" id="carouselPrev" aria-label="前へ">‹</button>
+      <button class="carousel-arrow next" id="carouselNext" aria-label="次へ">›</button>
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- 石田さん -->
+          <div class="carousel-slide">
+            <div class="lecturer-card">
+              <div class="lecturer-photo">
+                〔 主任講師：石田 慶太 氏のお写真 〕<br>
+                <span style="opacity:0.85;font-size:11px;">※ 元LPの写真を流用</span>
+              </div>
+              <div class="lecturer-info">
+                <span class="role">AX研修監修／主任講師</span>
+                <h3>石田 慶太</h3>
+                <p class="name-en">Keita Ishida</p>
+                <p class="bio">東京大学システム創成学科卒。マッキンゼー・アンド・カンパニーの金融グループおよびデジタル部門にて、大手企業のDX戦略および生成AI活用プロジェクトを担当。マッキンゼーのDX方法論「Rewired」のコアリーダーを務めた。その後、大手通信会社にて全社的なエンジニア人材戦略の策定および生成AI活用プロジェクトをリード。経営戦略から最先端技術の社会実装までを、一貫した知見で推進。</p>
+                <div class="lecturer-themes">
+                  <h4>主な講師テーマ</h4>
+                  <ul>
+                    <li>生成AIの業務適用を前提とした研修体系の設計</li>
+                    <li>業界別ユースケースに即した実装ワークショップ</li>
+                    <li>経営層から現場までの層別リテラシー設計</li>
+                  </ul>
+                </div>
+                <div class="lecturer-quote">
+                  <strong>本研修で重視していること</strong>
+                  受講者が"知る"だけで終わらず、業務にAIを適用し、成果につなげるところまで伴走することを大切にしている。
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 植松さん -->
+          <div class="carousel-slide">
+            <div class="lecturer-card">
+              <div class="lecturer-photo">
+                〔 植松様 お写真 〕<br>
+                <span style="opacity:0.85;font-size:11px;">※ 貴社よりお送りください</span>
+              </div>
+              <div class="lecturer-info">
+                <span class="role member">プロジェクトリード</span>
+                <h3>植松 ◯◯</h3>
+                <p class="name-en">Uematsu ◯◯</p>
+                <p class="bio">株式会社ココナラ／ココナラコンサル事業責任者。法人企業様の課題ヒアリングから人材マッチング・実施計画策定までを統括。エンタープライズ向け研修プロジェクトの全体推進を担当します。</p>
+                <div class="placeholder-block">
+                  <span class="placeholder-badge">要情報</span> 正式な肩書き・経歴・コメントを貴社よりご共有いただけますと、確定文言として差し替えます。
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 針替さん -->
+          <div class="carousel-slide">
+            <div class="lecturer-card">
+              <div class="lecturer-photo">
+                〔 針替様 お写真 〕<br>
+                <span style="opacity:0.85;font-size:11px;">※ 貴社よりお送りください</span>
+              </div>
+              <div class="lecturer-info">
+                <span class="role member">プロジェクトメンバー</span>
+                <h3>針替 ◯◯</h3>
+                <p class="name-en">Harigai ◯◯</p>
+                <p class="bio">株式会社ココナラ／ココナラコンサル。プロ人材データベースを活用した、貴社の研修テーマに最適な専門家のマッチングを担当。研修期間中の運営・調整までを一貫して伴走します。</p>
+                <div class="placeholder-block">
+                  <span class="placeholder-badge">要情報</span> 正式な肩書き・経歴・コメントを貴社よりご共有いただけますと、確定文言として差し替えます。
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 助成金セクション（独立）===================== -->
+<section class="subsidy" id="subsidy">
+  <div class="section-inner">
+    <p class="section-eyebrow">SUBSIDY</p>
+    <h2 class="section-title">人材開発支援助成金で、<br>AI研修費用を<span class="accent">最大75%補助</span><span class="new-badge">新規</span></h2>
+
+    <div class="subsidy-hero">
+      <span class="subsidy-tag">PLAN 03・PLAN 04 対象</span>
+      <p class="subsidy-big">中小企業の場合：最大<span class="num">75</span>% 補助<br>中小企業以外：最大<span class="num">60</span>% 補助</p>
+      <p class="subsidy-system">対象制度：厚生労働省「人材開発支援助成金（事業展開等リスキリング支援コース）」</p>
+      <p class="subsidy-deadline">申請期限：2027年3月31日まで</p>
+    </div>
+
+    <h3 style="text-align:center;font-size:18px;color:var(--body-text);margin-bottom:20px;">申請から研修実施までの流れ</h3>
+    <div class="subsidy-flow">
+      <div class="subsidy-step">
+        <div class="num">1</div>
+        <h4>無料相談<br>ヒアリング</h4>
+      </div>
+      <div class="subsidy-step">
+        <div class="num">2</div>
+        <h4>カリキュラム<br>提案・見積</h4>
+      </div>
+      <div class="subsidy-step">
+        <div class="num">3</div>
+        <h4>助成金<br>申請伴走</h4>
+      </div>
+      <div class="subsidy-step">
+        <div class="num">4</div>
+        <h4>研修実施</h4>
+      </div>
+      <div class="subsidy-step">
+        <div class="num">5</div>
+        <h4>実施報告書<br>作成サポート</h4>
+      </div>
+    </div>
+
+    <p class="subsidy-disclaimer">※ 本サービスは助成金・補助金の採択を確約するものではありません。申請業務については弊社がアドバイスをご提供いたしますが、法律に基づき、貴社または社労士が書類の最終化を実施する必要があります。採択および助成率は厚生労働省・労働局の審査によります。</p>
+
+    <div class="subsidy-cta">
+      <a href="#contact" class="btn btn-gold btn-stacked">
+        <span class="btn-main">助成金活用について相談する</span>
+        <span class="btn-sub">30分のオンラインMTG・無料</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 料金＆フロー ===================== -->
+<section class="pricing" id="pricing">
+  <div class="section-inner">
+    <p class="section-eyebrow">PRICING & PROCESS</p>
+    <h2 class="section-title">料金と<span class="accent">受講までの流れ</span></h2>
+
+    <div class="pricing-card">
+      <p class="label">料金</p>
+      <div class="price-display">
+        <span class="num">30</span><span class="yen">万円</span><span class="from">〜</span>
+      </div>
+      <p class="price-desc">カリキュラムご提案のうえ、お見積りいたします。<br><span style="font-size:11px;color:#999;">※カリキュラム規模・期間により変動します。</span></p>
+
+      <div class="subsidy-callout">
+        助成金活用で、中小企業は実質負担<span class="big-num">7.5</span>万円〜（最大75%補助適用後の参考額）
+      </div>
+
+      <div class="pricing-cta">
+        <a href="#contact" class="btn btn-gold btn-stacked">
+          <span class="btn-main">まずは無料で相談する</span>
+          <span class="btn-sub">30分のオンラインMTG・無料</span>
+        </a>
+      </div>
+      <div class="pricing-notes">
+        <p>※ Plan 03 は厚生労働省「人材開発支援助成金（事業展開等リスキリング支援コース）」の規定である10時間以上の構成を満たすため、助成金申請・採択された場合には、中小企業は最大75%、中小企業以外は最大60%の経費が助成される可能性があります。</p>
+        <p>※ 本サービスは助成金・補助金の採択を確約するものではありません。</p>
+        <p>※ 助成金制度の期限は <strong style="color:var(--accent);">2027年3月31日</strong> です。</p>
+      </div>
+    </div>
+
+    <h3 class="flow-title">受講までの流れ</h3>
+    <div class="flow-timeline">
+
+      <div class="flow-step-row">
+        <div class="flow-step-marker">
+          <div class="num-circle">
+            <span class="num-label">STEP</span>
+            <span class="num-num">01</span>
+          </div>
+          <span class="step-time">初回 30〜60分</span>
+        </div>
+        <div class="flow-step-content">
+          <h3>無料相談・ヒアリング</h3>
+          <div class="flow-meta">
+            <div class="flow-meta-item">
+              <span class="meta-label">担当</span>
+              <span class="meta-text">ココナラ専任担当 + 主任講師</span>
+            </div>
+            <div class="flow-meta-item">
+              <span class="meta-label">主な内容</span>
+              <span class="meta-text">業界・課題・受講対象のレベル感・期間・予算をヒアリング</span>
+            </div>
+            <div class="flow-meta-item">
+              <span class="meta-label">お渡しするもの</span>
+              <span class="meta-text">ヒアリング結果サマリ／検討論点の整理</span>
+            </div>
+            <div class="flow-meta-item">
+              <span class="meta-label">次に決まること</span>
+              <span class="meta-text">研修テーマの方向性と概算規模感</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step-row">
+        <div class="flow-step-marker">
+          <div class="num-circle">
+            <span class="num-label">STEP</span>
+            <span class="num-num">02</span>
+          </div>
+          <span class="step-time">1週間〜</span>
+        </div>
+        <div class="flow-step-content">
+          <h3>カリキュラム提案・お見積り</h3>
+          <div class="flow-meta">
+            <div class="flow-meta-item">
+              <span class="meta-label">担当</span>
+              <span class="meta-text">主任講師 + ココナラ専任担当</span>
+            </div>
+            <div class="flow-meta-item">
+              <span class="meta-label">主な内容</span>
+              <span class="meta-text">貴社専用カスタムカリキュラム案の設計・ご提示／お見積り</span>
+            </div>
+            <div class="flow-meta-item">
+              <span class="meta-label">お渡しするもの</span>
+              <span class="meta-text">カリキュラム提案書／お見積書／実施スケジュール案</span>
+            </div>
+            <div class="flow-meta-item">
+              <span class="meta-label">次に決まること</span>
+              <span class="meta-text">契約条件と研修開始時期</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step-row">
+        <div class="flow-step-marker">
+          <div class="num-circle">
+            <span class="num-label">STEP</span>
+            <span class="num-num">03</span>
+          </div>
+          <span class="step-time">1〜2ヶ月</span>
+        </div>
+        <div class="flow-step-content">
+          <h3>助成金申請伴走・研修準備</h3>
+          <div class="flow-meta">
+            <div class="flow-meta-item">
+              <span class="meta-label">担当</span>
+              <span class="meta-text">ココナラ専任担当 + 貴社人事ご担当者</span>
+            </div>
+            <div class="flow-meta-item">
+              <span class="meta-label">主な内容</span>
+              <span class="meta-text">助成金の計画申請書類準備アドバイス／受講者選定・事前案内</span>
+            </div>
+            <div class="flow-meta-item">
+              <span class="meta-label">お渡しするもの</span>
+              <span class="meta-text">申請書類テンプレート／受講者ガイダンス資料</span>
+            </div>
+            <div class="flow-meta-item">
+              <span class="meta-label">次に決まること</span>
+              <span class="meta-text">助成金申請可否（労働局審査結果）／研修日程確定</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step-row">
+        <div class="flow-step-marker">
+          <div class="num-circle">
+            <span class="num-label">STEP</span>
+            <span class="num-num">04</span>
+          </div>
+          <span class="step-time">1〜2ヶ月</span>
+        </div>
+        <div class="flow-step-content">
+          <h3>研修実施</h3>
+          <div class="flow-meta">
+            <div class="flow-meta-item">
+              <span class="meta-label">担当</span>
+              <span class="meta-text">主任講師 + アシスタント講師</span>
+            </div>
+            <div class="flow-meta-item">
+              <span class="meta-label">主な内容</span>
+              <span class="meta-text">4段階レベル設計に沿った講義・演習・実装ワーク（対面／オンライン／ハイブリッド対応）</span>
+            </div>
+            <div class="flow-meta-item">
+              <span class="meta-label">お渡しするもの</span>
+              <span class="meta-text">研修教材／演習用テンプレート／録画アーカイブ（ご要望時）</span>
+            </div>
+            <div class="flow-meta-item">
+              <span class="meta-label">次に決まること</span>
+              <span class="meta-text">受講者ごとの業務実装ロードマップ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step-row">
+        <div class="flow-step-marker">
+          <div class="num-circle">
+            <span class="num-label">STEP</span>
+            <span class="num-num">05</span>
+          </div>
+          <span class="step-time">研修後 3ヶ月〜</span>
+        </div>
+        <div class="flow-step-content">
+          <h3>継続支援・効果測定</h3>
+          <div class="flow-meta">
+            <div class="flow-meta-item">
+              <span class="meta-label">担当</span>
+              <span class="meta-text">主任講師 + ココナラ専任担当</span>
+            </div>
+            <div class="flow-meta-item">
+              <span class="meta-label">主な内容</span>
+              <span class="meta-text">業務実装PoCの伴走／追加プロンプト整備／月次定例での効果測定／助成金実施報告書作成サポート</span>
+            </div>
+            <div class="flow-meta-item">
+              <span class="meta-label">お渡しするもの</span>
+              <span class="meta-text">実施報告書ドラフト／効果測定レポート</span>
+            </div>
+            <div class="flow-meta-item">
+              <span class="meta-label">次に決まること</span>
+              <span class="meta-text">定着フェーズへの移行 ／ PLAN 04（フルパッケージ）への発展</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ（アコーディオン）===================== -->
+<section class="faq" id="faq">
+  <div class="section-inner">
+    <p class="section-eyebrow">FAQ</p>
+    <h2 class="section-title">よくあるご質問</h2>
+    <div class="faq-list" id="faqList">
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span><span class="q-text">どのプランを選べばよいですか？</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">貴社の目的・規模・期間に応じて、4つのプラン（基調講演／集中ワークショップ／業務実装プログラム／フルパッケージ）から最適なものをご提案します。複数プランの組み合わせも可能です。まずは無料相談にてお聞かせください。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span><span class="q-text">助成金は活用できますか？</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Plan 03（10時間以上）は、厚生労働省「人材開発支援助成金（事業展開等リスキリング支援コース）」の対象となる"実訓練時間10時間以上"の要件を満たします。要件を満たしたうえで、助成金を申請〜採択された場合、中小企業は最大75%、中小企業以外は最大60%の経費が助成される可能性があります。当社は計画申請のアドバイスをご提供しますが、助成金申請の代行は行いません。採択および助成率は厚生労働省・労働局の審査によるもので、採択を確約するものではありません。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span><span class="q-text">助成金の申請手続きはどこまでサポートしてもらえますか？<span class="new-badge">新規</span></span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">計画申請書類の準備アドバイス・カリキュラム要件のすり合わせ・実施報告書作成のサポートまで伴走いたします。書類の最終化・労働局への提出は、法律に基づき貴社または社労士様にお願いしております。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span><span class="q-text">研修実施後のサポート期間はどのくらいですか？<span class="new-badge">新規</span></span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">研修終了後 3ヶ月〜の継続支援を標準でご用意しています。業務実装後の運用課題や追加プロンプト整備など、現場での定着まで伴走します。PLAN 04（フルパッケージ）の場合は中長期での伴走支援も可能です。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span><span class="q-text">オンライン受講は可能ですか？</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">可能です。対面／オンライン／ハイブリッドのいずれの形式でも対応可能。貴社の体制に合わせて設計します。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span><span class="q-text">業種別のカスタマイズはできますか？</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">はい。住宅・製造・IT・小売・金融など、業界・業務ごとのユースケースに即してカリキュラムをカスタマイズします。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span><span class="q-text">1社あたり何名から実施可能ですか？</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">最低5名〜が目安となりますが、ご相談に応じて柔軟に対応いたします。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span><span class="q-text">特定のAIベンダーに縛られますか？</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">ベンダーフリーの方針で支援しています。Gemini／ChatGPT／Claude／Copilotなど、貴社の既存環境を最大限活用するかたちで設計します。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span><span class="q-text">申し込みから実施までどのくらいの期間がかかりますか？</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">ご相談から研修実施まで、最短2〜3週間程度です。助成金活用の場合は計画申請期間を含めて1〜2ヶ月程度を見込みます。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="q-mark">Q</span><span class="q-text">フルパッケージ（PLAN 04）導入の進め方は？</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">AI研修（基盤醸成）＋全社AIロードマップ策定支援＋AIエージェント／アプリケーション開発を、貴社の中期計画等に合わせて段階的に進めます。経営戦略レイヤーから現場実装まで、一気通貫で伴走します。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 最終CTA ===================== -->
+<section class="final-cta" id="contact">
+  <h2>貴社のAI活用、最初の一歩から伴走します。</h2>
+  <p>無料相談時に、貴社の業界・規模・課題に合わせたプランをご提示いたします。<br>まずはお気軽にお問い合わせください。</p>
+  <div class="cta-row">
+    <a href="#" class="btn btn-primary btn-stacked">
+      <span class="btn-main">まずは無料で相談する</span>
+      <span class="btn-sub">30分のオンラインMTG・無料</span>
+    </a>
+    <a href="#" class="btn btn-secondary btn-stacked">
+      <span class="btn-main">資料をダウンロード</span>
+      <span class="btn-sub">サービス概要・事例まとめ</span>
+    </a>
+  </div>
+  <div class="deadline">
+    人材開発支援助成金（事業展開等リスキリング支援コース）の制度期限は <strong>2027年3月31日</strong> です。
+  </div>
+</section>
+
+<!-- ===================== フッター ===================== -->
+<footer>
+  <div class="footer-logo">ココナラ<span>コンサル</span></div>
+  <div class="links">
+    <a href="#">運営会社（株式会社ココナラ）</a>
+    <a href="#">利用規約</a>
+    <a href="#">プライバシーポリシー</a>
+    <a href="#">外部送信ポリシー</a>
+    <a href="#contact">無料相談</a>
+    <a href="#download">資料請求</a>
+  </div>
+  <p class="copyright">© 2026 株式会社ココナラ（東証グロース 4176）／ 本ファイルは LP修正イメージ用モックアップです。</p>
+</footer>
+
+<script>
+  // ===== 事例タブ切替 =====
+  const tabs = document.querySelectorAll('.case-tab');
+  const allCases = document.querySelectorAll('[data-panel="all"] .case-card');
+  const categoryMap = {
+    manufacturing: ['製造業'],
+    it: ['IT・SaaS'],
+    retail: ['小売・EC'],
+    finance: ['金融'],
+    housing: ['住宅・不動産']
+  };
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const target = tab.dataset.target;
+      allCases.forEach(card => {
+        const label = card.querySelector('.case-label').textContent;
+        if (target === 'all') {
+          card.style.display = 'flex';
+        } else {
+          const keywords = categoryMap[target] || [];
+          card.style.display = keywords.some(k => label.includes(k)) ? 'flex' : 'none';
+        }
+      });
+    });
+  });
+
+  // ===== 講師カルーセル =====
+  const track = document.getElementById('carouselTrack');
+  const slides = track.querySelectorAll('.carousel-slide');
+  const prev = document.getElementById('carouselPrev');
+  const next = document.getElementById('carouselNext');
+  const dotsWrap = document.getElementById('carouselDots');
+  let current = 0;
+
+  // dotsを生成
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `スライド ${i + 1}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = dotsWrap.querySelectorAll('.carousel-dot');
+
+  function goTo(idx) {
+    current = Math.max(0, Math.min(slides.length - 1, idx));
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    prev.disabled = current === 0;
+    next.disabled = current === slides.length - 1;
+  }
+  prev.addEventListener('click', () => goTo(current - 1));
+  next.addEventListener('click', () => goTo(current + 1));
+  goTo(0);
+
+  // タッチスワイプ対応
+  let touchStart = 0;
+  track.addEventListener('touchstart', e => { touchStart = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = touchStart - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+  });
+
+  // ===== FAQアコーディオン =====
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      item.classList.toggle('open');
+      if (!isOpen) {
+        a.style.maxHeight = a.scrollHeight + 'px';
+      } else {
+        a.style.maxHeight = '0';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
