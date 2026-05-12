@@ -482,32 +482,34 @@
     border: 1px solid var(--line-light);
     box-shadow: 0 10px 30px rgba(102,81,255,0.08);
   }
+  .compare-table { min-width: 720px; }
   .compare-table th,
   .compare-table td {
-    padding: 18px 18px;
+    padding: 16px 14px;
     text-align: left;
     vertical-align: middle;
     border-bottom: 1px solid var(--line-light);
-    font-size: 14px;
+    font-size: 13px;
   }
   .compare-table thead th {
     background: var(--base-bg);
     text-align: center;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--body-text);
     font-weight: 700;
-    padding: 22px 18px;
+    padding: 16px 12px;
+    line-height: 1.4;
   }
   .compare-table thead th.our {
     background: var(--primary-gradient);
     color: #fff;
     position: relative;
-    font-size: 15px;
+    font-size: 14px;
   }
   .compare-table thead th.our::before {
     content: "★ ココナラコンサル";
     display: block;
-    font-size: 11px;
+    font-size: 10px;
     opacity: 0.9;
     margin-bottom: 2px;
     font-weight: 700;
@@ -515,11 +517,13 @@
   }
   .compare-table th.row-label {
     background: var(--base-bg);
-    width: 28%;
+    width: 20%;
     color: var(--primary);
     font-weight: 700;
-    font-size: 13px;
+    font-size: 12.5px;
   }
+  .compare-table thead th:not(.row-label):not(.our) { width: 20%; }
+  .compare-table thead th.our { width: 24%; }
   .compare-table td.other {
     color: #888;
     background: #fafafa;
@@ -638,10 +642,19 @@
   .program-card h3 {
     font-size: 18px;
     color: var(--body-text);
-    margin: 6px 0 8px;
+    margin: 6px 0 10px;
     line-height: 1.4;
+    min-height: 50px;
+    display: flex;
+    align-items: flex-start;
   }
-  .program-card.recommended h3 { font-size: 20px; }
+  .program-card.recommended h3 { font-size: 18px; }
+  .program-card .time-row {
+    min-height: 26px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+  }
   .program-card .time {
     background: var(--primary);
     color: #fff;
@@ -650,7 +663,6 @@
     border-radius: 999px;
     font-size: 11px;
     font-weight: 700;
-    margin-bottom: 14px;
   }
   .program-card.recommended .time { background: var(--accent); }
   .program-card p {
@@ -658,12 +670,15 @@
     line-height: 1.8;
     color: var(--body-gray);
     margin-bottom: 14px;
-    flex: 1;
+    min-height: 145px;
   }
   .scene-tags {
     display: flex;
     gap: 6px;
     flex-wrap: wrap;
+    margin-top: auto;
+    min-height: 50px;
+    align-content: flex-start;
   }
   .scene-tag {
     background: #fff;
@@ -1722,38 +1737,52 @@
         <thead>
           <tr>
             <th></th>
-            <th class="other">一般的な<br>研修サービス</th>
+            <th class="other">研修サービス<strong style="display:block;font-size:14px;color:var(--body-text);margin-top:2px;">A</strong><span class="compare-placeholder">例：大手研修会社</span></th>
+            <th class="other">研修サービス<strong style="display:block;font-size:14px;color:var(--body-text);margin-top:2px;">B</strong><span class="compare-placeholder">例：講師派遣型</span></th>
+            <th class="other">研修サービス<strong style="display:block;font-size:14px;color:var(--body-text);margin-top:2px;">C</strong><span class="compare-placeholder">例：オンライン研修</span></th>
             <th class="our">AX研修</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <th class="row-label">比較項目 ①<br><span class="compare-placeholder">例：カリキュラム</span></th>
-            <td class="other"><span class="compare-placeholder">例：汎用パッケージ</span></td>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
             <td class="our"><span class="compare-placeholder">例：業界×業務でフルカスタム</span></td>
           </tr>
           <tr>
             <th class="row-label">比較項目 ②<br><span class="compare-placeholder">例：講師の専門性</span></th>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
             <td class="other"><span class="compare-placeholder">記載内容</span></td>
             <td class="our"><span class="compare-placeholder">記載内容</span></td>
           </tr>
           <tr>
             <th class="row-label">比較項目 ③<br><span class="compare-placeholder">例：業務実装支援</span></th>
             <td class="other"><span class="compare-placeholder">記載内容</span></td>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
             <td class="our"><span class="compare-placeholder">記載内容</span></td>
           </tr>
           <tr>
             <th class="row-label">比較項目 ④<br><span class="compare-placeholder">例：助成金対応</span></th>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
             <td class="other"><span class="compare-placeholder">記載内容</span></td>
             <td class="our"><span class="compare-placeholder">記載内容</span></td>
           </tr>
           <tr>
             <th class="row-label">比較項目 ⑤<br><span class="compare-placeholder">例：研修後の継続支援</span></th>
             <td class="other"><span class="compare-placeholder">記載内容</span></td>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
             <td class="our"><span class="compare-placeholder">記載内容</span></td>
           </tr>
           <tr>
             <th class="row-label">比較項目 ⑥<br><span class="compare-placeholder">必要に応じて追加</span></th>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
+            <td class="other"><span class="compare-placeholder">記載内容</span></td>
             <td class="other"><span class="compare-placeholder">記載内容</span></td>
             <td class="our"><span class="compare-placeholder">記載内容</span></td>
           </tr>
@@ -1789,7 +1818,7 @@
       <div class="program-card">
         <p class="plan">PLAN 01</p>
         <h3>基調講演・社内イベント招聘</h3>
-        <span class="time">1〜3時間</span>
+        <div class="time-row"><span class="time">1〜3時間</span></div>
         <p>経営層・管理職向けのキックオフや全社イベントに、主任講師が基調講演・パネル登壇のかたちで登壇。AI戦略の方針共有や全社のマインドセット形成に。</p>
         <div class="scene-tags">
           <span class="scene-tag">全社イベント</span>
@@ -1801,7 +1830,7 @@
       <div class="program-card">
         <p class="plan">PLAN 02</p>
         <h3>集中ワークショップ</h3>
-        <span class="time">半日〜1日</span>
+        <div class="time-row"><span class="time">半日〜1日</span></div>
         <p>チーム単位のリテラシー底上げを目的とした、ハンズオン形式の集中プログラム。短期間で「触れる→使える」段階まで到達。</p>
         <div class="scene-tags">
           <span class="scene-tag">部門別研修</span>
@@ -1814,7 +1843,7 @@
         <span class="recommend-badge">最もおすすめ／助成金対象</span>
         <p class="plan">PLAN 03</p>
         <h3>業務実装プログラム</h3>
-        <span class="time">10時間以上／標準12時間</span>
+        <div class="time-row"><span class="time">10時間以上／標準12時間</span></div>
         <p>4段階（知る／理解する／業務実装／効果実感）の標準カリキュラムで、業務実装まで一気通貫。<strong>人材開発支援助成金のリスキリングコース申請要件（10時間以上）に適合</strong>。貴社の業界・業務に合わせてカスタマイズ。</p>
         <div class="scene-tags">
           <span class="scene-tag">全社AX推進</span>
@@ -1826,7 +1855,7 @@
       <div class="program-card">
         <p class="plan">PLAN 04</p>
         <h3>フルパッケージ</h3>
-        <span class="time">中長期</span>
+        <div class="time-row"><span class="time">中長期</span></div>
         <p>AI研修（基盤醸成）＋全社AIロードマップ策定支援＋AIエージェント／アプリケーション開発。経営戦略レイヤーまで踏み込む統合パッケージ。</p>
         <div class="scene-tags">
           <span class="scene-tag">DX中期計画</span>
@@ -2143,8 +2172,7 @@
           <div class="carousel-slide">
             <div class="lecturer-card">
               <div class="lecturer-photo">
-                〔 植松様 お写真 〕<br>
-                <span style="opacity:0.85;font-size:11px;">※ 貴社よりお送りください</span>
+                〔 植松様 お写真 〕
               </div>
               <div class="lecturer-info">
                 <span class="role member">プロジェクトリード</span>
@@ -2158,16 +2186,15 @@
             </div>
           </div>
 
-          <!-- 針替さん -->
+          <!-- 張替さん -->
           <div class="carousel-slide">
             <div class="lecturer-card">
               <div class="lecturer-photo">
-                〔 針替様 お写真 〕<br>
-                <span style="opacity:0.85;font-size:11px;">※ 貴社よりお送りください</span>
+                〔 張替様 お写真 〕
               </div>
               <div class="lecturer-info">
                 <span class="role member">プロジェクトメンバー</span>
-                <h3>針替 ◯◯</h3>
+                <h3>張替 ◯◯</h3>
                 <p class="name-en">Harigai ◯◯</p>
                 <p class="bio">株式会社ココナラ／ココナラコンサル。プロ人材データベースを活用した、貴社の研修テーマに最適な専門家のマッチングを担当。研修期間中の運営・調整までを一貫して伴走します。</p>
                 <div class="placeholder-block">
